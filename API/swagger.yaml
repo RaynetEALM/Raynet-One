@@ -1,0 +1,4384 @@
+openapi: 3.0.1
+info:
+  title: External API
+  description: The API for integration with third-party services.
+  version: v1
+paths:
+  /api/v1/Bios/GetBiosByDeviceId:
+    get:
+      tags:
+        - Bios
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+  /api/v1/Bios/GetBiosById:
+    get:
+      tags:
+        - Bios
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+  /api/v1/Bios:
+    get:
+      tags:
+        - Bios
+      operationId: GetBios
+      parameters:
+        - name: LastId
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: count
+          in: query
+          schema:
+            type: integer
+            format: int32
+            default: 100
+      responses:
+        '200':
+          description: OK
+  /api/v1/Bios/GetByDeviceIdList:
+    get:
+      tags:
+        - Bios
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+      responses:
+        '200':
+          description: OK
+  /api/v1/Chassis/GetChassisByDeviceId:
+    get:
+      tags:
+        - Chassis
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+  /api/v1/Chassis/GetChassisById:
+    get:
+      tags:
+        - Chassis
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+  /api/v1/Chassis:
+    get:
+      tags:
+        - Chassis
+      operationId: GetChassis
+      parameters:
+        - name: LastId
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: count
+          in: query
+          schema:
+            type: integer
+            format: int32
+            default: 100
+      responses:
+        '200':
+          description: OK
+  /api/v1/Chassis/GetByDeviceIdList:
+    get:
+      tags:
+        - Chassis
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+      responses:
+        '200':
+          description: OK
+  /api/v1/ComputerSystemProducts/GetComputerSystemProductsByDeviceId:
+    get:
+      tags:
+        - ComputerSystemProducts
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+  /api/v1/ComputerSystemProducts/GetComputerSystemProductById:
+    get:
+      tags:
+        - ComputerSystemProducts
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+  /api/v1/ComputerSystemProducts:
+    get:
+      tags:
+        - ComputerSystemProducts
+      operationId: GetComputerSystemProducts
+      parameters:
+        - name: LastId
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: count
+          in: query
+          schema:
+            type: integer
+            format: int32
+            default: 100
+      responses:
+        '200':
+          description: OK
+  /api/v1/ComputerSystemProducts/GetByDeviceIdList:
+    get:
+      tags:
+        - ComputerSystemProducts
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+      responses:
+        '200':
+          description: OK
+  /api/v1/Cpus/GetCPUDataByDeviceId:
+    get:
+      tags:
+        - Cpus
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+  /api/v1/Cpus/GetCPUDataById:
+    get:
+      tags:
+        - Cpus
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+  /api/v1/Cpus:
+    get:
+      tags:
+        - Cpus
+      operationId: GetCpus
+      parameters:
+        - name: LastId
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: count
+          in: query
+          schema:
+            type: integer
+            format: int32
+            default: 100
+      responses:
+        '200':
+          description: OK
+  /api/v1/Cpus/GetByDeviceIdList:
+    get:
+      tags:
+        - Cpus
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+      responses:
+        '200':
+          description: OK
+  /api/v1/Devices/GetDeviceById:
+    get:
+      tags:
+        - Devices
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+  /api/v1/Devices:
+    get:
+      tags:
+        - Devices
+      operationId: GetDevices
+      parameters:
+        - name: LastId
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: count
+          in: query
+          schema:
+            type: integer
+            format: int32
+            default: 100
+        - name: InventoryDateLaterThen
+          in: query
+          schema:
+            type: string
+            format: date-time
+      responses:
+        '200':
+          description: OK
+  /api/v1/Devices/GetByDeviceIdList:
+    get:
+      tags:
+        - Devices
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+      responses:
+        '200':
+          description: OK
+  /api/v1/Disks/GetDisksByDeviceId:
+    get:
+      tags:
+        - Disks
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+  /api/v1/Disks/GetDiskById:
+    get:
+      tags:
+        - Disks
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+  /api/v1/Disks:
+    get:
+      tags:
+        - Disks
+      operationId: GetDisks
+      parameters:
+        - name: LastId
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: count
+          in: query
+          schema:
+            type: integer
+            format: int32
+            default: 100
+      responses:
+        '200':
+          description: OK
+  /api/v1/Disks/GetByDeviceIdList:
+    get:
+      tags:
+        - Disks
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+      responses:
+        '200':
+          description: OK
+  /api/v1/Docker/GetDockerByDeviceId:
+    get:
+      tags:
+        - Docker
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+  /api/v1/Docker/GetDockerById:
+    get:
+      tags:
+        - Docker
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+  /api/v1/Docker:
+    get:
+      tags:
+        - Docker
+      operationId: GetDocker
+      parameters:
+        - name: LastId
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: count
+          in: query
+          schema:
+            type: integer
+            format: int32
+            default: 100
+      responses:
+        '200':
+          description: OK
+  /api/v1/Docker/GetByDeviceIdList:
+    get:
+      tags:
+        - Docker
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+      responses:
+        '200':
+          description: OK
+  /api/v1/File/GetFilesByDeviceId:
+    get:
+      tags:
+        - File
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+  /api/v1/File/GetFileById:
+    get:
+      tags:
+        - File
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+  /api/v1/File:
+    get:
+      tags:
+        - File
+      operationId: GetFile
+      parameters:
+        - name: LastId
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: count
+          in: query
+          schema:
+            type: integer
+            format: int32
+            default: 100
+      responses:
+        '200':
+          description: OK
+  /api/v1/File/GetByDeviceIdList:
+    get:
+      tags:
+        - File
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+      responses:
+        '200':
+          description: OK
+  /api/v1/Fingerprints/GetFingerprintsByDeviceId:
+    get:
+      tags:
+        - Fingerprints
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: lastId
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: count
+          in: query
+          schema:
+            type: integer
+            format: int32
+            default: 100
+      responses:
+        '200':
+          description: OK
+  /api/v1/Fingerprints/GetFingerprintsByType:
+    get:
+      tags:
+        - Fingerprints
+      parameters:
+        - name: type
+          in: query
+          schema:
+            type: string
+        - name: count
+          in: query
+          schema:
+            type: integer
+            format: int32
+            default: 100
+      responses:
+        '200':
+          description: OK
+  /api/v1/Fingerprints/CountSoftwareFingerprints:
+    get:
+      tags:
+        - Fingerprints
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+  /api/v1/Fingerprints/GetSoftwareFingerprintById:
+    get:
+      tags:
+        - Fingerprints
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+  /api/v1/Fingerprints:
+    get:
+      tags:
+        - Fingerprints
+      operationId: GetFingerprints
+      parameters:
+        - name: LastId
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: count
+          in: query
+          schema:
+            type: integer
+            format: int32
+            default: 100
+      responses:
+        '200':
+          description: OK
+  /api/v1/Fingerprints/GetByDeviceIdList:
+    get:
+      tags:
+        - Fingerprints
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+      responses:
+        '200':
+          description: OK
+  /api/v1/Gpus/GetVideoControllersByDeviceId:
+    get:
+      tags:
+        - Gpus
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+  /api/v1/Gpus/GetVideoControllerById:
+    get:
+      tags:
+        - Gpus
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+  /api/v1/Gpus:
+    get:
+      tags:
+        - Gpus
+      operationId: GetGpus
+      parameters:
+        - name: LastId
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: count
+          in: query
+          schema:
+            type: integer
+            format: int32
+            default: 100
+      responses:
+        '200':
+          description: OK
+  /api/v1/Gpus/GetByDeviceIdList:
+    get:
+      tags:
+        - Gpus
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+      responses:
+        '200':
+          description: OK
+  /api/v1/HyperVs/GetHyperVByDeviceId:
+    get:
+      tags:
+        - HyperVs
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+  /api/v1/HyperVs:
+    get:
+      tags:
+        - HyperVs
+      operationId: GetHyperVs
+      parameters:
+        - name: LastId
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: count
+          in: query
+          schema:
+            type: integer
+            format: int32
+            default: 100
+      responses:
+        '200':
+          description: OK
+  /api/v1/HyperVs/GetByDeviceIdList:
+    get:
+      tags:
+        - HyperVs
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+      responses:
+        '200':
+          description: OK
+  /api/v1/InventoryScriptResults/GetInventoryScriptResultsByDeviceId:
+    get:
+      tags:
+        - InventoryScriptResults
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+  /api/v1/InventoryScriptResults/GetInventoryScriptResultById:
+    get:
+      tags:
+        - InventoryScriptResults
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+  /api/v1/InventoryScriptResults:
+    get:
+      tags:
+        - InventoryScriptResults
+      operationId: GetInventoryScriptResults
+      parameters:
+        - name: LastId
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: count
+          in: query
+          schema:
+            type: integer
+            format: int32
+            default: 100
+      responses:
+        '200':
+          description: OK
+  /api/v1/InventoryScriptResults/GetByDeviceIdList:
+    get:
+      tags:
+        - InventoryScriptResults
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+      responses:
+        '200':
+          description: OK
+  /api/v1/Keyboards:
+    get:
+      tags:
+        - Keyboards
+      operationId: GetKeyboards
+      parameters:
+        - name: LastId
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: count
+          in: query
+          schema:
+            type: integer
+            format: int32
+            default: 100
+      responses:
+        '200':
+          description: OK
+  /api/v1/Keyboards/GetByDeviceIdList:
+    get:
+      tags:
+        - Keyboards
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+      responses:
+        '200':
+          description: OK
+  /api/v1/LogicalVolumes/GetLogicalVolumesByDeviceId:
+    get:
+      tags:
+        - LogicalVolumes
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+  /api/v1/LogicalVolumes/GetLogicalVolumeById:
+    get:
+      tags:
+        - LogicalVolumes
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+  /api/v1/LogicalVolumes:
+    get:
+      tags:
+        - LogicalVolumes
+      operationId: GetLogicalVolumes
+      parameters:
+        - name: LastId
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: count
+          in: query
+          schema:
+            type: integer
+            format: int32
+            default: 100
+      responses:
+        '200':
+          description: OK
+  /api/v1/LogicalVolumes/GetByDeviceIdList:
+    get:
+      tags:
+        - LogicalVolumes
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+      responses:
+        '200':
+          description: OK
+  /api/v1/NetworkAdapters/GetNetworkAdaptersByDeviceID:
+    get:
+      tags:
+        - NetworkAdapters
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+  /api/v1/NetworkAdapters/GetNetworkAdapterById:
+    get:
+      tags:
+        - NetworkAdapters
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+  /api/v1/NetworkAdapters:
+    get:
+      tags:
+        - NetworkAdapters
+      operationId: GetNetworkAdapters
+      parameters:
+        - name: LastId
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: count
+          in: query
+          schema:
+            type: integer
+            format: int32
+            default: 100
+      responses:
+        '200':
+          description: OK
+  /api/v1/NetworkAdapters/GetByDeviceIdList:
+    get:
+      tags:
+        - NetworkAdapters
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+      responses:
+        '200':
+          description: OK
+  /api/v1/Networks:
+    get:
+      tags:
+        - Networks
+      operationId: GetNetworks
+      parameters:
+        - name: LastId
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: count
+          in: query
+          schema:
+            type: integer
+            format: int32
+            default: 100
+      responses:
+        '200':
+          description: OK
+  /api/v1/OperatingSystems/ListOperatingSystems:
+    get:
+      tags:
+        - OperatingSystems
+      responses:
+        '200':
+          description: OK
+  /api/v1/OperatingSystems/GetOperatingSystemById:
+    get:
+      tags:
+        - OperatingSystems
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+  /api/v1/OperatingSystems/GetOperatingSystemByDeviceId:
+    get:
+      tags:
+        - OperatingSystems
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+  /api/v1/OperatingSystems:
+    get:
+      tags:
+        - OperatingSystems
+      operationId: GetOperatingSystems
+      parameters:
+        - name: LastId
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: count
+          in: query
+          schema:
+            type: integer
+            format: int32
+            default: 100
+      responses:
+        '200':
+          description: OK
+  /api/v1/OperatingSystems/GetByDeviceIdList:
+    get:
+      tags:
+        - OperatingSystems
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+      responses:
+        '200':
+          description: OK
+  /api/v1/Operations/discovery:
+    post:
+      tags:
+        - Operations
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/JsonDeviceDiscoverySettings'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JsonDeviceDiscoverySettings'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/JsonDeviceDiscoverySettings'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/JsonDeviceDiscoverySettings'
+      responses:
+        '200':
+          description: OK
+  /api/v1/Operations/inventory:
+    post:
+      tags:
+        - Operations
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/JsonDeviceInventorySettings'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JsonDeviceInventorySettings'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/JsonDeviceInventorySettings'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/JsonDeviceInventorySettings'
+      responses:
+        '200':
+          description: OK
+  /api/v1/Operations/import:
+    post:
+      tags:
+        - Operations
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/JsonImportSettings'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JsonImportSettings'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/JsonImportSettings'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/JsonImportSettings'
+      responses:
+        '200':
+          description: OK
+  /api/v1/Operations/device-id-delete:
+    delete:
+      tags:
+        - Operations
+      parameters:
+        - name: deviceId
+          in: query
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+  /api/v1/Operations/import-id-delete:
+    delete:
+      tags:
+        - Operations
+      parameters:
+        - name: customImportId
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+  /api/v1/Operations/device-import:
+    post:
+      tags:
+        - Operations
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/DeviceUploadContract'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeviceUploadContract'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/DeviceUploadContract'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/DeviceUploadContract'
+      responses:
+        '200':
+          description: OK
+  /api/v1/OracleDbs/GetOracleDatabaseByDeviceId:
+    get:
+      tags:
+        - OracleDbs
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+  /api/v1/OracleDbs/GetOracleById:
+    get:
+      tags:
+        - OracleDbs
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+  /api/v1/OracleDbs:
+    get:
+      tags:
+        - OracleDbs
+      operationId: GetOracleDbs
+      parameters:
+        - name: LastId
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: count
+          in: query
+          schema:
+            type: integer
+            format: int32
+            default: 100
+      responses:
+        '200':
+          description: OK
+  /api/v1/OracleDbs/GetByDeviceIdList:
+    get:
+      tags:
+        - OracleDbs
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+      responses:
+        '200':
+          description: OK
+  /api/v1/OrganizationUnit:
+    get:
+      tags:
+        - OrganizationUnit
+      operationId: GetOrganizationUnit
+      parameters:
+        - name: LastId
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: count
+          in: query
+          schema:
+            type: integer
+            format: int32
+            default: 100
+      responses:
+        '200':
+          description: OK
+  /api/v1/PointingDevices:
+    get:
+      tags:
+        - PointingDevices
+      operationId: GetPointingDevices
+      parameters:
+        - name: LastId
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: count
+          in: query
+          schema:
+            type: integer
+            format: int32
+            default: 100
+      responses:
+        '200':
+          description: OK
+  /api/v1/PointingDevices/GetByDeviceIdList:
+    get:
+      tags:
+        - PointingDevices
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+      responses:
+        '200':
+          description: OK
+  /api/v1/Processes/GetProcessesByDeviceId:
+    get:
+      tags:
+        - Processes
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+  /api/v1/Processes/GetProcessById:
+    get:
+      tags:
+        - Processes
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+  /api/v1/Processes:
+    get:
+      tags:
+        - Processes
+      operationId: GetProcesses
+      parameters:
+        - name: LastId
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: count
+          in: query
+          schema:
+            type: integer
+            format: int32
+            default: 100
+      responses:
+        '200':
+          description: OK
+  /api/v1/Processes/GetByDeviceIdList:
+    get:
+      tags:
+        - Processes
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+      responses:
+        '200':
+          description: OK
+  /api/v1/RegistryEntries/GetRegistryEntriesByDeviceId:
+    get:
+      tags:
+        - RegistryEntries
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+  /api/v1/RegistryEntries/GetRegistryEntryById:
+    get:
+      tags:
+        - RegistryEntries
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+  /api/v1/RegistryEntries:
+    get:
+      tags:
+        - RegistryEntries
+      operationId: GetRegistryEntries
+      parameters:
+        - name: LastId
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: count
+          in: query
+          schema:
+            type: integer
+            format: int32
+            default: 100
+      responses:
+        '200':
+          description: OK
+  /api/v1/RegistryEntries/GetByDeviceIdList:
+    get:
+      tags:
+        - RegistryEntries
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+      responses:
+        '200':
+          description: OK
+  /api/v1/Runners:
+    get:
+      tags:
+        - Runners
+      operationId: GetRunners
+      parameters:
+        - name: LastId
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: count
+          in: query
+          schema:
+            type: integer
+            format: int32
+            default: 100
+      responses:
+        '200':
+          description: OK
+  /api/v1/SccmHosts:
+    get:
+      tags:
+        - SccmHosts
+      operationId: GetSccmHosts
+      parameters:
+        - name: LastId
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: count
+          in: query
+          schema:
+            type: integer
+            format: int32
+            default: 100
+      responses:
+        '200':
+          description: OK
+  /api/v1/ServerFeatures/GetServerFeaturesByDeviceId:
+    get:
+      tags:
+        - ServerFeatures
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+  /api/v1/ServerFeatures/GetServerFeatureById:
+    get:
+      tags:
+        - ServerFeatures
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+  /api/v1/ServerFeatures:
+    get:
+      tags:
+        - ServerFeatures
+      operationId: GetServerFeatures
+      parameters:
+        - name: LastId
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: count
+          in: query
+          schema:
+            type: integer
+            format: int32
+            default: 100
+      responses:
+        '200':
+          description: OK
+  /api/v1/ServerFeatures/GetByDeviceIdList:
+    get:
+      tags:
+        - ServerFeatures
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+      responses:
+        '200':
+          description: OK
+  /api/v1/Site:
+    get:
+      tags:
+        - Site
+      operationId: GetSite
+      parameters:
+        - name: LastId
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: count
+          in: query
+          schema:
+            type: integer
+            format: int32
+            default: 100
+      responses:
+        '200':
+          description: OK
+  /api/v1/StoredCredentials:
+    get:
+      tags:
+        - StoredCredentials
+      operationId: GetStoredCredentials
+      parameters:
+        - name: LastId
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: count
+          in: query
+          schema:
+            type: integer
+            format: int32
+            default: 100
+      responses:
+        '200':
+          description: OK
+  /api/v1/VSpheres/GetVSphereByDeviceId:
+    get:
+      tags:
+        - VSpheres
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+  /api/v1/VSpheres/GetVSphereById:
+    get:
+      tags:
+        - VSpheres
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+  /api/v1/VSpheres:
+    get:
+      tags:
+        - VSpheres
+      operationId: GetVSpheres
+      parameters:
+        - name: LastId
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: count
+          in: query
+          schema:
+            type: integer
+            format: int32
+            default: 100
+      responses:
+        '200':
+          description: OK
+  /api/v1/VSpheres/GetByDeviceIdList:
+    get:
+      tags:
+        - VSpheres
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+      responses:
+        '200':
+          description: OK
+  /api/v1/WindowsServices/GetWindowsServicesByDeviceId:
+    get:
+      tags:
+        - WindowsServices
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+  /api/v1/WindowsServices/GetWindowsServiceById:
+    get:
+      tags:
+        - WindowsServices
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+  /api/v1/WindowsServices:
+    get:
+      tags:
+        - WindowsServices
+      operationId: GetWindowsServices
+      parameters:
+        - name: LastId
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: count
+          in: query
+          schema:
+            type: integer
+            format: int32
+            default: 100
+      responses:
+        '200':
+          description: OK
+  /api/v1/WindowsServices/GetByDeviceIdList:
+    get:
+      tags:
+        - WindowsServices
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+      responses:
+        '200':
+          description: OK
+  /api/v1/Zones/GetZonesByDeviceId:
+    get:
+      tags:
+        - Zones
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+  /api/v1/Zones/GetZoneById:
+    get:
+      tags:
+        - Zones
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+  /api/v1/Zones:
+    get:
+      tags:
+        - Zones
+      operationId: GetZones
+      parameters:
+        - name: LastId
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: count
+          in: query
+          schema:
+            type: integer
+            format: int32
+            default: 100
+      responses:
+        '200':
+          description: OK
+  /api/v1/Zones/GetByDeviceIdList:
+    get:
+      tags:
+        - Zones
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/GuidListRequest'
+      responses:
+        '200':
+          description: OK
+components:
+  schemas:
+    DeviceTargetType:
+      enum:
+        - 0
+        - 1
+        - 2
+      type: integer
+      format: int32
+    DeviceTargetingType:
+      enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+      type: integer
+      format: int32
+    DeviceUploadContract:
+      type: object
+      properties:
+        device:
+          $ref: '#/components/schemas/ExtendedDeviceContract'
+        metadata:
+          $ref: '#/components/schemas/DeviceUploadMetadata'
+      additionalProperties: false
+    DeviceUploadMetadata:
+      type: object
+      properties:
+        inventoryDate:
+          type: string
+          format: date-time
+          nullable: true
+        siteId:
+          type: string
+          format: uuid
+      additionalProperties: false
+    DiscoveryType:
+      enum:
+        - 0
+      type: integer
+      format: int32
+    ExtendedDeviceContract:
+      type: object
+      properties:
+        name:
+          type: string
+          nullable: true
+        creationDate:
+          type: string
+          format: date-time
+          nullable: true
+        tag:
+          type: string
+          nullable: true
+        domain:
+          type: string
+          nullable: true
+        model:
+          type: string
+          nullable: true
+        manufacturer:
+          type: string
+          nullable: true
+        numberOfLogicalProcessors:
+          type: integer
+          format: int32
+          nullable: true
+        numberOfProcessors:
+          type: integer
+          format: int32
+          nullable: true
+        totalPhysicalMemory:
+          type: integer
+          format: int64
+          nullable: true
+        physicalMemory:
+          type: integer
+          format: int64
+          nullable: true
+        uuid:
+          type: string
+          nullable: true
+        userName:
+          type: string
+          nullable: true
+        comment:
+          type: string
+          nullable: true
+        corporateAssetClass:
+          type: string
+          nullable: true
+        corporateIdentifier:
+          type: string
+          nullable: true
+        corporateState:
+          type: string
+          nullable: true
+        adLastLogon:
+          type: string
+          format: date-time
+          nullable: true
+        customImportId:
+          type: string
+          nullable: true
+        customSource:
+          type: string
+          nullable: true
+        corporateOwnership:
+          type: boolean
+        detectedOsType:
+          $ref: '#/components/schemas/DeviceTargetType'
+        cpus:
+          type: array
+          items:
+            $ref: '#/components/schemas/JsonCpu'
+          nullable: true
+        computerSystemProducts:
+          type: array
+          items:
+            $ref: '#/components/schemas/JsonComputerSystemProduct'
+          nullable: true
+        gpus:
+          type: array
+          items:
+            $ref: '#/components/schemas/JsonGpu'
+          nullable: true
+        bios:
+          $ref: '#/components/schemas/JsonBios'
+        keyboards:
+          type: array
+          items:
+            $ref: '#/components/schemas/JsonKeyboard'
+          nullable: true
+        pointingDevices:
+          type: array
+          items:
+            $ref: '#/components/schemas/JsonPointingDevice'
+          nullable: true
+        softwareFingerprints:
+          type: array
+          items:
+            $ref: '#/components/schemas/JsonSoftwareFingerprint'
+          nullable: true
+        os:
+          $ref: '#/components/schemas/JsonOperatingSystem'
+        networkAdapters:
+          type: array
+          items:
+            $ref: '#/components/schemas/JsonNetworkAdapter'
+          nullable: true
+        disks:
+          type: array
+          items:
+            $ref: '#/components/schemas/JsonDisk'
+          nullable: true
+        logicalVolumes:
+          type: array
+          items:
+            $ref: '#/components/schemas/JsonLogicalVolume'
+          nullable: true
+        chassis:
+          $ref: '#/components/schemas/JsonChassis'
+        files:
+          type: array
+          items:
+            $ref: '#/components/schemas/JsonFileEvidence'
+          nullable: true
+        registryEntries:
+          type: array
+          items:
+            $ref: '#/components/schemas/JsonRegistryEntry'
+          nullable: true
+        processes:
+          type: array
+          items:
+            $ref: '#/components/schemas/JsonProcess'
+          nullable: true
+        windowsServices:
+          type: array
+          items:
+            $ref: '#/components/schemas/JsonWindowsService'
+          nullable: true
+        serverFeatures:
+          type: array
+          items:
+            $ref: '#/components/schemas/JsonServerFeature'
+          nullable: true
+        zones:
+          $ref: '#/components/schemas/JsonZoneInfo'
+        vSphere:
+          $ref: '#/components/schemas/JsonVSphere'
+        hyperV:
+          $ref: '#/components/schemas/JsonHyperV'
+        docker:
+          $ref: '#/components/schemas/JsonDocker'
+      additionalProperties: false
+    GuidListRequest:
+      type: object
+      properties:
+        guids:
+          type: array
+          items:
+            type: string
+            format: uuid
+          nullable: true
+      additionalProperties: false
+    ImportType:
+      enum:
+        - 0
+        - 1
+        - 2
+      type: integer
+      format: int32
+    JsonActiveDirectoryImportData:
+      type: object
+      properties:
+        domainName:
+          type: string
+          nullable: true
+        hostFilter:
+          type: string
+          nullable: true
+        considerDeactivatedDevices:
+          type: boolean
+          nullable: true
+        credentialId:
+          type: string
+          format: uuid
+          nullable: true
+        includeWindowsServers:
+          type: boolean
+        includeWindowsClients:
+          type: boolean
+        includeCustomOperatingSystems:
+          type: boolean
+        customOperatingSystems:
+          type: string
+          nullable: true
+        runnerId:
+          type: string
+          format: uuid
+          nullable: true
+      additionalProperties: false
+    JsonBios:
+      type: object
+      properties:
+        deviceId:
+          type: string
+          format: uuid
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          nullable: true
+        manufacturer:
+          $ref: '#/components/schemas/JsonHardwareManufacturer'
+        version:
+          type: string
+          nullable: true
+        releaseDate:
+          type: string
+          format: date-time
+          nullable: true
+        serialNumber:
+          type: string
+          nullable: true
+          readOnly: true
+      additionalProperties: false
+    JsonChassis:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        deviceId:
+          type: string
+          format: uuid
+        name:
+          type: string
+          nullable: true
+        caption:
+          type: string
+          nullable: true
+        type:
+          type: string
+          nullable: true
+        isPortableId:
+          type: boolean
+        description:
+          type: string
+          nullable: true
+        serialNumber:
+          type: string
+          nullable: true
+        smbiosAssetTag:
+          type: string
+          nullable: true
+        assetTag:
+          type: string
+          nullable: true
+        tag:
+          type: string
+          nullable: true
+        version:
+          type: string
+          nullable: true
+        sku:
+          type: string
+          nullable: true
+        lockPresent:
+          type: boolean
+        chassisHeight:
+          type: string
+          nullable: true
+        powerCords:
+          type: string
+          nullable: true
+        chassisType:
+          type: string
+          nullable: true
+        securityStatus:
+          type: string
+          nullable: true
+        powerSupplyState:
+          type: string
+          nullable: true
+        thermalState:
+          type: string
+          nullable: true
+        manufacturer:
+          $ref: '#/components/schemas/JsonHardwareManufacturer'
+      additionalProperties: false
+    JsonComputerSystemProduct:
+      type: object
+      properties:
+        deviceId:
+          type: string
+          format: uuid
+        id:
+          type: string
+          format: uuid
+        identifyingNumber:
+          type: string
+          nullable: true
+        caption:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+        name:
+          type: string
+          nullable: true
+        skuNumber:
+          type: string
+          nullable: true
+        manufacturer:
+          $ref: '#/components/schemas/JsonHardwareManufacturer'
+        version:
+          type: string
+          nullable: true
+      additionalProperties: false
+    JsonCpu:
+      type: object
+      properties:
+        deviceId:
+          type: string
+          format: uuid
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          nullable: true
+        family:
+          type: integer
+          format: int32
+          nullable: true
+        model:
+          type: integer
+          format: int32
+          nullable: true
+        stepping:
+          type: integer
+          format: int32
+          nullable: true
+        processorId:
+          type: string
+          nullable: true
+        cores:
+          type: integer
+          format: int32
+        logicalCores:
+          type: integer
+          format: int32
+        currentClockSpeed:
+          type: integer
+          format: int64
+          nullable: true
+        maxClockSpeed:
+          type: integer
+          format: int64
+          nullable: true
+        currentVoltage:
+          type: number
+          format: double
+          nullable: true
+      additionalProperties: false
+    JsonCustomPortConfiguration:
+      type: object
+      properties:
+        ports:
+          type: string
+          nullable: true
+        type:
+          $ref: '#/components/schemas/PortServiceType'
+      additionalProperties: false
+    JsonDeviceDiscoverySettings:
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/DiscoveryType'
+        networkDiscoveryData:
+          $ref: '#/components/schemas/JsonNetworkDiscoverySettings'
+        useCustomSettings:
+          type: boolean
+        customSettings:
+          $ref: '#/components/schemas/JsonDiscoverySettings'
+      additionalProperties: false
+    JsonDeviceInventorySettings:
+      type: object
+      properties:
+        useCustomSettings:
+          type: boolean
+        customSettings:
+          $ref: '#/components/schemas/JsonDeviceInventorySubSettings'
+        targetingType:
+          $ref: '#/components/schemas/DeviceTargetingType'
+        deviceIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+          nullable: true
+        organizationUnitIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+          nullable: true
+        networkIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+          nullable: true
+        siteIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+          nullable: true
+        inventoryMaxAge:
+          type: integer
+          format: int32
+          nullable: true
+        includeDevicesWithoutInventory:
+          type: boolean
+        credentialIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+          nullable: true
+        runnerId:
+          type: string
+          format: uuid
+          nullable: true
+      additionalProperties: false
+    JsonDeviceInventorySubSettings:
+      type: object
+      properties:
+        deviceId:
+          type: string
+          format: uuid
+          nullable: true
+        isDefault:
+          type: boolean
+        disabledInstruments:
+          type: array
+          items:
+            $ref: '#/components/schemas/JsonDisabledInstrument'
+          nullable: true
+        customPorts:
+          type: array
+          items:
+            $ref: '#/components/schemas/JsonCustomPortConfiguration'
+          nullable: true
+        credentialBehaviour:
+          $ref: '#/components/schemas/MissingCredentialBehaviour'
+        enablePortProbing:
+          type: boolean
+        inventoryScriptIds:
+          type: array
+          items:
+            type: string
+          nullable: true
+      additionalProperties: false
+    JsonDisabledInstrument:
+      type: object
+      properties:
+        identifier:
+          type: string
+          nullable: true
+        pluginName:
+          type: string
+          nullable: true
+      additionalProperties: false
+    JsonDiscoverySettings:
+      type: object
+      properties:
+        isDefault:
+          type: boolean
+        newDeviceBehaviour:
+          $ref: '#/components/schemas/NewEntityFoundBehaviour'
+        newOracleServiceBehaviour:
+          $ref: '#/components/schemas/NewOracleDbFoundBehaviour'
+        newNetworkBehaviour:
+          $ref: '#/components/schemas/NewEntityFoundBehaviour'
+        excludedMacAddresses:
+          type: array
+          items:
+            type: string
+          nullable: true
+        excludedNetworkAdapterNameFragments:
+          type: array
+          items:
+            type: string
+          nullable: true
+      additionalProperties: false
+    JsonDisk:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        deviceId:
+          type: string
+          format: uuid
+        name:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+        size:
+          type: integer
+          format: int64
+        freeSpace:
+          type: integer
+          format: int64
+          nullable: true
+        partitions:
+          type: integer
+          format: int32
+        interfaceTypes:
+          type: string
+          nullable: true
+        manufacturer:
+          $ref: '#/components/schemas/JsonHardwareManufacturer'
+        model:
+          type: string
+          nullable: true
+        status:
+          type: string
+          nullable: true
+        serialNumber:
+          type: string
+          nullable: true
+      additionalProperties: false
+    JsonDocker:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        deviceId:
+          type: string
+          format: uuid
+        name:
+          type: string
+          nullable: true
+        client:
+          type: string
+          nullable: true
+        version:
+          type: string
+          nullable: true
+        clientVersion:
+          type: string
+          nullable: true
+        clientOS:
+          type: string
+          nullable: true
+        clientArch:
+          type: string
+          nullable: true
+        clientServer:
+          type: string
+          nullable: true
+        engineVersion:
+          type: string
+          nullable: true
+        engineOS:
+          type: string
+          nullable: true
+        engineArch:
+          type: string
+          nullable: true
+        containerDVersion:
+          type: string
+          nullable: true
+        architecture:
+          type: string
+          nullable: true
+        isExperimental:
+          type: boolean
+        containers:
+          type: array
+          items:
+            $ref: '#/components/schemas/JsonDockerContainer'
+          nullable: true
+          readOnly: true
+        images:
+          type: array
+          items:
+            $ref: '#/components/schemas/JsonDockerImage'
+          nullable: true
+          readOnly: true
+        infoProperties:
+          type: array
+          items:
+            $ref: '#/components/schemas/StringStringKeyValuePair'
+          nullable: true
+          readOnly: true
+        versionProperties:
+          type: array
+          items:
+            $ref: '#/components/schemas/StringStringKeyValuePair'
+          nullable: true
+          readOnly: true
+      additionalProperties: false
+    JsonDockerContainer:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        image:
+          type: string
+          nullable: true
+          readOnly: true
+        containerId:
+          type: string
+          nullable: true
+          readOnly: true
+        status:
+          type: string
+          nullable: true
+          readOnly: true
+        ports:
+          type: string
+          nullable: true
+          readOnly: true
+      additionalProperties: false
+    JsonDockerImage:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        repository:
+          type: string
+          nullable: true
+          readOnly: true
+        tag:
+          type: string
+          nullable: true
+          readOnly: true
+        sizeInBytes:
+          type: integer
+          format: int64
+          readOnly: true
+      additionalProperties: false
+    JsonEsxComputerSystem:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          type: string
+          nullable: true
+          readOnly: true
+        objectType:
+          type: string
+          nullable: true
+          readOnly: true
+        elementName:
+          type: string
+          nullable: true
+          readOnly: true
+        parent:
+          type: string
+          nullable: true
+          readOnly: true
+        manufacturer:
+          type: string
+          nullable: true
+          readOnly: true
+        model:
+          type: string
+          nullable: true
+          readOnly: true
+        uuid:
+          type: string
+          nullable: true
+          readOnly: true
+        totalPhysicalMemory:
+          type: string
+          nullable: true
+          readOnly: true
+        cpuModel:
+          type: string
+          nullable: true
+          readOnly: true
+        cpuMhz:
+          type: string
+          nullable: true
+          readOnly: true
+        numberOfProcessors:
+          type: string
+          nullable: true
+          readOnly: true
+        numberOfProcessorCores:
+          type: string
+          nullable: true
+          readOnly: true
+        numberOfLogicalProcessors:
+          type: string
+          nullable: true
+          readOnly: true
+        numNics:
+          type: string
+          nullable: true
+          readOnly: true
+        numHBAs:
+          type: string
+          nullable: true
+          readOnly: true
+        vmotionEnabled:
+          type: string
+          nullable: true
+          readOnly: true
+        connectionState:
+          type: string
+          nullable: true
+          readOnly: true
+        hostName:
+          type: string
+          nullable: true
+          readOnly: true
+        maxEVCModeKey:
+          type: string
+          nullable: true
+          readOnly: true
+        inMaintenanceMode:
+          type: string
+          nullable: true
+          readOnly: true
+        licenseKey:
+          type: string
+          nullable: true
+          readOnly: true
+        operatingSystem:
+          $ref: '#/components/schemas/JsonVMwareOperatingSystem'
+        computerSystemProduct:
+          $ref: '#/components/schemas/JsonEsxComputerSystemProduct'
+        bios:
+          $ref: '#/components/schemas/JsonVMwareBios'
+        processors:
+          type: array
+          items:
+            $ref: '#/components/schemas/JsonVMwareProcessor'
+          nullable: true
+          readOnly: true
+        networkConfigurations:
+          type: array
+          items:
+            $ref: '#/components/schemas/JsonVMwareNetworkConfiguration'
+          nullable: true
+          readOnly: true
+        packages:
+          type: array
+          items:
+            $ref: '#/components/schemas/JsonVMwarePackage'
+          nullable: true
+          readOnly: true
+        virtualMachines:
+          type: array
+          items:
+            $ref: '#/components/schemas/JsonVMwareComputerSystem'
+          nullable: true
+      additionalProperties: false
+    JsonEsxComputerSystemProduct:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          type: string
+          nullable: true
+          readOnly: true
+        vendor:
+          type: string
+          nullable: true
+          readOnly: true
+        model:
+          type: string
+          nullable: true
+          readOnly: true
+        uuid:
+          type: string
+          nullable: true
+          readOnly: true
+      additionalProperties: false
+    JsonFileEvidence:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        deviceId:
+          type: string
+          format: uuid
+        name:
+          type: string
+          nullable: true
+        mD5CheckSum:
+          type: string
+          nullable: true
+        content:
+          type: string
+          nullable: true
+        size:
+          type: integer
+          format: int64
+          nullable: true
+        locations:
+          type: array
+          items:
+            $ref: '#/components/schemas/JsonFileLocation'
+          nullable: true
+          readOnly: true
+      additionalProperties: false
+    JsonFileLocation:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        timestamp:
+          type: string
+          format: date-time
+          nullable: true
+          readOnly: true
+        path:
+          type: string
+          nullable: true
+          readOnly: true
+      additionalProperties: false
+    JsonGpu:
+      type: object
+      properties:
+        deviceId:
+          type: string
+          format: uuid
+        id:
+          type: string
+          format: uuid
+        driverVersion:
+          type: string
+          nullable: true
+          readOnly: true
+        driverDate:
+          type: string
+          format: date-time
+          nullable: true
+          readOnly: true
+        name:
+          type: string
+          nullable: true
+        videoProcessor:
+          type: string
+          nullable: true
+        manufacturer:
+          $ref: '#/components/schemas/JsonHardwareManufacturer'
+      additionalProperties: false
+    JsonHardwareManufacturer:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+        logo:
+          type: string
+          nullable: true
+      additionalProperties: false
+    JsonHyperV:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        deviceId:
+          type: string
+          format: uuid
+        name:
+          type: string
+          nullable: true
+          readOnly: true
+        description:
+          type: string
+          nullable: true
+          readOnly: true
+        clusterName:
+          type: string
+          nullable: true
+          readOnly: true
+        machines:
+          type: array
+          items:
+            $ref: '#/components/schemas/JsonHyperVMachine'
+          nullable: true
+          readOnly: true
+      additionalProperties: false
+    JsonHyperVMachine:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          type: string
+          nullable: true
+          readOnly: true
+        configurationVersion:
+          type: string
+          nullable: true
+          readOnly: true
+        virtualMachineId:
+          type: string
+          nullable: true
+          readOnly: true
+        processId:
+          type: integer
+          format: int64
+          nullable: true
+          readOnly: true
+        healthState:
+          type: string
+          nullable: true
+          readOnly: true
+        state:
+          type: string
+          nullable: true
+          readOnly: true
+        architecture:
+          type: string
+          nullable: true
+          readOnly: true
+        numberOfProcessors:
+          type: integer
+          format: int32
+          nullable: true
+          readOnly: true
+        processorLoad:
+          type: integer
+          format: int32
+          nullable: true
+          readOnly: true
+        memoryUsage:
+          type: integer
+          format: int64
+          nullable: true
+          readOnly: true
+        availableMemoryBuffer:
+          type: integer
+          format: int64
+          nullable: true
+          readOnly: true
+        memoryAvailable:
+          type: integer
+          format: int64
+          nullable: true
+          readOnly: true
+        installDate:
+          type: string
+          format: date-time
+          nullable: true
+          readOnly: true
+        lastConfigurationChange:
+          type: string
+          format: date-time
+          nullable: true
+          readOnly: true
+        lastStateChange:
+          type: string
+          format: date-time
+          nullable: true
+          readOnly: true
+        creationTime:
+          type: string
+          format: date-time
+          nullable: true
+          readOnly: true
+        bios:
+          $ref: '#/components/schemas/JsonBios'
+        operatingSystem:
+          $ref: '#/components/schemas/JsonOperatingSystem'
+        maCs:
+          type: string
+          nullable: true
+          readOnly: true
+        enableHibernation:
+          type: boolean
+          readOnly: true
+        secureBootEnabled:
+          type: boolean
+          readOnly: true
+        configurationDataRoot:
+          type: string
+          nullable: true
+          readOnly: true
+        configurationFile:
+          type: string
+          nullable: true
+          readOnly: true
+        guestStateDataRoot:
+          type: string
+          nullable: true
+          readOnly: true
+        guestStateFile:
+          type: string
+          nullable: true
+          readOnly: true
+        snapshotDataRoot:
+          type: string
+          nullable: true
+          readOnly: true
+        suspendDataRoot:
+          type: string
+          nullable: true
+          readOnly: true
+        swapFileDataRoot:
+          type: string
+          nullable: true
+          readOnly: true
+      additionalProperties: false
+    JsonIPv4Address:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        address:
+          type: string
+          nullable: true
+        mask:
+          type: string
+          nullable: true
+        network:
+          $ref: '#/components/schemas/JsonNetwork'
+      additionalProperties: false
+    JsonIPv6Address:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        address:
+          type: string
+          nullable: true
+        network:
+          $ref: '#/components/schemas/JsonNetworkv6'
+      additionalProperties: false
+    JsonImportSettings:
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/ImportType'
+        useCustomSettings:
+          type: boolean
+        customSettings:
+          $ref: '#/components/schemas/JsonDiscoverySettings'
+        activeDirectoryImportData:
+          $ref: '#/components/schemas/JsonActiveDirectoryImportData'
+        sccmImportData:
+          $ref: '#/components/schemas/JsonSCCMImportData'
+      additionalProperties: false
+    JsonKeyboard:
+      type: object
+      properties:
+        deviceId:
+          type: string
+          format: uuid
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          nullable: true
+        caption:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+        layout:
+          type: string
+          nullable: true
+        numberOfFunctionKeys:
+          type: integer
+          format: int32
+          nullable: true
+        powerManagementSupported:
+          type: boolean
+          nullable: true
+        status:
+          type: string
+          nullable: true
+        configManagerErrorCode:
+          type: integer
+          format: int32
+          nullable: true
+        pnpDeviceId:
+          type: string
+          nullable: true
+      additionalProperties: false
+    JsonLogicalVolume:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        deviceId:
+          type: string
+          format: uuid
+        name:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+        size:
+          type: integer
+          format: int64
+        partitions:
+          type: integer
+          format: int32
+        label:
+          type: string
+          nullable: true
+        freeSpace:
+          type: integer
+          format: int64
+          nullable: true
+        fileSystem:
+          type: string
+          nullable: true
+        status:
+          type: string
+          nullable: true
+      additionalProperties: false
+    JsonNetwork:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          nullable: true
+        network:
+          type: string
+          nullable: true
+        netmask:
+          type: string
+          nullable: true
+        cidr:
+          type: integer
+          format: int32
+        usable:
+          type: integer
+          format: int64
+          nullable: true
+        broadcast:
+          type: string
+          nullable: true
+        firstUsable:
+          type: string
+          nullable: true
+        lastUsable:
+          type: string
+          nullable: true
+        defaultIPGateway:
+          type: string
+          nullable: true
+        dhcpServer:
+          type: string
+          nullable: true
+        ipV4Addresses:
+          type: array
+          items:
+            $ref: '#/components/schemas/JsonIPv4Address'
+          nullable: true
+          readOnly: true
+        addressBits:
+          type: integer
+          format: int32
+        maskBits:
+          type: integer
+          format: int32
+      additionalProperties: false
+    JsonNetworkAdapter:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        deviceId:
+          type: string
+          format: uuid
+        name:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+        index:
+          type: integer
+          format: int32
+        speed:
+          type: integer
+          format: int64
+          nullable: true
+        macAddress:
+          type: string
+          nullable: true
+        iPv4Addresses:
+          type: array
+          items:
+            $ref: '#/components/schemas/JsonIPv4Address'
+          nullable: true
+        iPv6Addresses:
+          type: array
+          items:
+            $ref: '#/components/schemas/JsonIPv6Address'
+          nullable: true
+        manufacturer:
+          $ref: '#/components/schemas/JsonHardwareManufacturer'
+      additionalProperties: false
+    JsonNetworkDiscoverySettings:
+      type: object
+      properties:
+        targetType:
+          $ref: '#/components/schemas/NetworkTargetingType'
+        instrumentIdentifier:
+          type: string
+          nullable: true
+        selectedNetworkIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+          nullable: true
+        selectedOuIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+          nullable: true
+        selectedSiteIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+          nullable: true
+      additionalProperties: false
+    JsonNetworkv6:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          type: string
+          nullable: true
+        network:
+          type: string
+          nullable: true
+        netmask:
+          type: string
+          nullable: true
+        cidr:
+          type: integer
+          format: int32
+        usable:
+          type: string
+          nullable: true
+        firstUsable:
+          type: string
+          nullable: true
+        lastUsable:
+          type: string
+          nullable: true
+        defaultIPGateway:
+          type: string
+          nullable: true
+        dhcpServer:
+          type: string
+          nullable: true
+        ipV6Addresses:
+          type: array
+          items:
+            $ref: '#/components/schemas/JsonIPv6Address'
+          nullable: true
+          readOnly: true
+        addressBits:
+          type: string
+          nullable: true
+        maskBits:
+          type: string
+          nullable: true
+      additionalProperties: false
+    JsonOperatingSystem:
+      type: object
+      properties:
+        deviceId:
+          type: string
+          format: uuid
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          nullable: true
+        caption:
+          type: string
+          nullable: true
+        servicePack:
+          type: string
+          nullable: true
+        manufacturer:
+          type: string
+          nullable: true
+        buildNumber:
+          type: string
+          nullable: true
+        architecture:
+          type: string
+          nullable: true
+        codename:
+          type: string
+          nullable: true
+        edition:
+          type: string
+          nullable: true
+        osLanguage:
+          type: string
+          nullable: true
+        osLanguageName:
+          type: string
+          nullable: true
+        version:
+          type: string
+          nullable: true
+        versionInternal:
+          type: string
+          nullable: true
+        type:
+          type: string
+          nullable: true
+        systemDirectory:
+          type: string
+          nullable: true
+        serialNumber:
+          type: string
+          nullable: true
+        installDate:
+          type: string
+          format: date-time
+          nullable: true
+      additionalProperties: false
+    JsonPointingDevice:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        deviceId:
+          type: string
+          format: uuid
+        name:
+          type: string
+          nullable: true
+        caption:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+        hardwareType:
+          type: string
+          nullable: true
+        status:
+          type: string
+          nullable: true
+        configManagerErrorCode:
+          type: integer
+          format: int32
+          nullable: true
+        pnpDeviceId:
+          type: string
+          nullable: true
+        manufacturer:
+          $ref: '#/components/schemas/JsonHardwareManufacturer'
+      additionalProperties: false
+    JsonProcess:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        deviceId:
+          type: string
+          format: uuid
+        name:
+          type: string
+          nullable: true
+        caption:
+          type: string
+          nullable: true
+        executablePath:
+          type: string
+          nullable: true
+        commandLine:
+          type: string
+          nullable: true
+        user:
+          type: string
+          nullable: true
+        virtualSize:
+          type: integer
+          format: int64
+          nullable: true
+      additionalProperties: false
+    JsonRegistryEntry:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        deviceId:
+          type: string
+          format: uuid
+        name:
+          type: string
+          nullable: true
+        childRegistryEntries:
+          type: array
+          items:
+            $ref: '#/components/schemas/JsonRegistryEntry'
+          nullable: true
+          readOnly: true
+        values:
+          type: array
+          items:
+            $ref: '#/components/schemas/JsonRegistryValue'
+          nullable: true
+          readOnly: true
+      additionalProperties: false
+    JsonRegistryValue:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          type: string
+          nullable: true
+        value:
+          type: string
+          nullable: true
+        valueType:
+          type: string
+          nullable: true
+      additionalProperties: false
+    JsonSCCMImportData:
+      type: object
+      properties:
+        sccmHost:
+          type: string
+          format: uuid
+          nullable: true
+        forceHostAddress:
+          type: boolean
+        credentialId:
+          type: string
+          format: uuid
+          nullable: true
+        runnerId:
+          type: string
+          format: uuid
+          nullable: true
+      additionalProperties: false
+    JsonServerFeature:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        deviceId:
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          type: string
+          nullable: true
+      additionalProperties: false
+    JsonSoftwareFingerprint:
+      type: object
+      properties:
+        deviceId:
+          type: string
+          format: uuid
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          nullable: true
+        vendor:
+          type: string
+          nullable: true
+        version:
+          type: string
+          nullable: true
+        productCode:
+          type: string
+          format: uuid
+          nullable: true
+        language:
+          type: string
+          nullable: true
+        installDate:
+          type: string
+          format: date-time
+          nullable: true
+          readOnly: true
+        installLocation:
+          type: string
+          nullable: true
+          readOnly: true
+        type:
+          type: string
+          nullable: true
+        caption:
+          type: string
+          nullable: true
+        size:
+          type: integer
+          format: int64
+          nullable: true
+        architecture:
+          type: string
+          nullable: true
+        packageName:
+          type: string
+          nullable: true
+        sku:
+          type: string
+          nullable: true
+        sourcePath:
+          type: string
+          nullable: true
+      additionalProperties: false
+    JsonVMwareBios:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          type: string
+          nullable: true
+          readOnly: true
+        biosVersion:
+          type: string
+          nullable: true
+          readOnly: true
+        releaseDate:
+          type: string
+          nullable: true
+          readOnly: true
+        majorRelease:
+          type: string
+          nullable: true
+          readOnly: true
+        minorRelease:
+          type: string
+          nullable: true
+          readOnly: true
+        firmwareMajorRelease:
+          type: string
+          nullable: true
+          readOnly: true
+        firmwareMinorRelease:
+          type: string
+          nullable: true
+          readOnly: true
+        legacySerialNumber:
+          type: string
+          nullable: true
+          readOnly: true
+        serialNumber:
+          type: string
+          nullable: true
+          readOnly: true
+        manufacturer:
+          type: string
+          nullable: true
+          readOnly: true
+        status:
+          type: string
+          nullable: true
+          readOnly: true
+        customStrings:
+          type: array
+          items:
+            $ref: '#/components/schemas/JsonVMwareBiosCustomString'
+          nullable: true
+          readOnly: true
+      additionalProperties: false
+    JsonVMwareBiosCustomString:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        key:
+          type: string
+          nullable: true
+          readOnly: true
+        value:
+          type: string
+          nullable: true
+          readOnly: true
+      additionalProperties: false
+    JsonVMwareCluster:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          type: string
+          nullable: true
+          readOnly: true
+        objectType:
+          type: string
+          nullable: true
+          readOnly: true
+        elementName:
+          type: string
+          nullable: true
+          readOnly: true
+        parent:
+          type: string
+          nullable: true
+          readOnly: true
+        resourcePool:
+          type: string
+          nullable: true
+          readOnly: true
+        type:
+          type: string
+          nullable: true
+          readOnly: true
+      additionalProperties: false
+    JsonVMwareClusterDrsConfig:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          type: string
+          nullable: true
+          readOnly: true
+        defaultVmBehavior:
+          type: string
+          nullable: true
+          readOnly: true
+        enabled:
+          type: string
+          nullable: true
+          readOnly: true
+        vmotionRate:
+          type: string
+          nullable: true
+          readOnly: true
+        options:
+          type: array
+          items:
+            $ref: '#/components/schemas/JsonVMwareClusterDrsConfigOption'
+          nullable: true
+          readOnly: true
+      additionalProperties: false
+    JsonVMwareClusterDrsConfigOption:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        key:
+          type: string
+          nullable: true
+          readOnly: true
+        value:
+          type: string
+          nullable: true
+          readOnly: true
+      additionalProperties: false
+    JsonVMwareClusterDrsVmConfig:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          type: string
+          nullable: true
+          readOnly: true
+        behavior:
+          type: string
+          nullable: true
+          readOnly: true
+        enabled:
+          type: string
+          nullable: true
+          readOnly: true
+        vmKey:
+          type: string
+          nullable: true
+          readOnly: true
+      additionalProperties: false
+    JsonVMwareClusterGroup:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          type: string
+          nullable: true
+          readOnly: true
+        clusterName:
+          type: string
+          nullable: true
+          readOnly: true
+        host:
+          type: string
+          nullable: true
+          readOnly: true
+        vm:
+          type: string
+          nullable: true
+          readOnly: true
+        objectType:
+          type: string
+          nullable: true
+          readOnly: true
+      additionalProperties: false
+    JsonVMwareClusterRule:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          type: string
+          nullable: true
+          readOnly: true
+        key:
+          type: string
+          nullable: true
+          readOnly: true
+        enabled:
+          type: string
+          nullable: true
+          readOnly: true
+        mandatory:
+          type: string
+          nullable: true
+          readOnly: true
+        status:
+          type: string
+          nullable: true
+          readOnly: true
+        userCreated:
+          type: string
+          nullable: true
+          readOnly: true
+        clusterName:
+          type: string
+          nullable: true
+          readOnly: true
+        affineHostGroupName:
+          type: string
+          nullable: true
+          readOnly: true
+        antiAffineHostGroupName:
+          type: string
+          nullable: true
+          readOnly: true
+        vmGroupName:
+          type: string
+          nullable: true
+          readOnly: true
+        vm:
+          type: string
+          nullable: true
+          readOnly: true
+        objectType:
+          type: string
+          nullable: true
+          readOnly: true
+      additionalProperties: false
+    JsonVMwareClusterTagCategories:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          type: string
+          nullable: true
+          readOnly: true
+        categories:
+          type: array
+          items:
+            $ref: '#/components/schemas/JsonVMwareClusterTagCategory'
+          nullable: true
+          readOnly: true
+      additionalProperties: false
+    JsonVMwareClusterTagCategory:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        key:
+          type: string
+          nullable: true
+          readOnly: true
+        value:
+          type: string
+          nullable: true
+          readOnly: true
+      additionalProperties: false
+    JsonVMwareComputeResource:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          type: string
+          nullable: true
+          readOnly: true
+      additionalProperties: false
+    JsonVMwareComputerSystem:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          type: string
+          nullable: true
+          readOnly: true
+        objectType:
+          type: string
+          nullable: true
+          readOnly: true
+        elementName:
+          type: string
+          nullable: true
+          readOnly: true
+        parent:
+          type: string
+          nullable: true
+          readOnly: true
+        resourcePool:
+          type: string
+          nullable: true
+          readOnly: true
+        vmPathName:
+          type: string
+          nullable: true
+          readOnly: true
+        memorySizeMB:
+          type: integer
+          format: int64
+          nullable: true
+          readOnly: true
+        memoryReservation:
+          type: integer
+          format: int64
+          nullable: true
+          readOnly: true
+        numCpu:
+          type: integer
+          format: int64
+          nullable: true
+          readOnly: true
+        numEthernetCards:
+          type: integer
+          format: int64
+          nullable: true
+          readOnly: true
+        numVirtualDisks:
+          type: integer
+          format: int64
+          nullable: true
+          readOnly: true
+        uuid:
+          type: string
+          nullable: true
+          readOnly: true
+        instanceUuid:
+          type: string
+          nullable: true
+          readOnly: true
+        guestId:
+          type: string
+          nullable: true
+          readOnly: true
+        guestFullName:
+          type: string
+          nullable: true
+          readOnly: true
+        annotation:
+          type: string
+          nullable: true
+          readOnly: true
+        numVmiopBackings:
+          type: string
+          nullable: true
+          readOnly: true
+        cpuReservation:
+          type: string
+          nullable: true
+          readOnly: true
+        connectionState:
+          type: string
+          nullable: true
+          readOnly: true
+        powerState:
+          type: string
+          nullable: true
+          readOnly: true
+        bootTime:
+          type: string
+          format: date-time
+          nullable: true
+          readOnly: true
+        maxCpuUsage:
+          type: string
+          nullable: true
+          readOnly: true
+        maxMemoryUsage:
+          type: string
+          nullable: true
+          readOnly: true
+      additionalProperties: false
+    JsonVMwareDataCenter:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          type: string
+          nullable: true
+          readOnly: true
+        objectType:
+          type: string
+          nullable: true
+          readOnly: true
+        elementName:
+          type: string
+          nullable: true
+          readOnly: true
+        hostFolder:
+          type: string
+          nullable: true
+          readOnly: true
+        parent:
+          type: string
+          nullable: true
+          readOnly: true
+        vmFolder:
+          type: string
+          nullable: true
+          readOnly: true
+      additionalProperties: false
+    JsonVMwareFolder:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          type: string
+          nullable: true
+          readOnly: true
+        elementName:
+          type: string
+          nullable: true
+          readOnly: true
+        objectType:
+          type: string
+          nullable: true
+          readOnly: true
+        parentName:
+          type: string
+          nullable: true
+          readOnly: true
+      additionalProperties: false
+    JsonVMwareNetworkConfiguration:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          type: string
+          nullable: true
+          readOnly: true
+        caption:
+          type: string
+          nullable: true
+          readOnly: true
+        ipAddress:
+          type: string
+          nullable: true
+          readOnly: true
+        macAddress:
+          type: string
+          nullable: true
+          readOnly: true
+        ipEnabled:
+          type: string
+          nullable: true
+          readOnly: true
+      additionalProperties: false
+    JsonVMwareOperatingSystem:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        apiType:
+          type: string
+          nullable: true
+          readOnly: true
+        apiVersion:
+          type: string
+          nullable: true
+          readOnly: true
+        name:
+          type: string
+          nullable: true
+          readOnly: true
+        version:
+          type: string
+          nullable: true
+          readOnly: true
+        build:
+          type: string
+          nullable: true
+          readOnly: true
+        caption:
+          type: string
+          nullable: true
+          readOnly: true
+        manufacturer:
+          type: string
+          nullable: true
+          readOnly: true
+        osType:
+          type: string
+          nullable: true
+          readOnly: true
+        otherTypeDescription:
+          type: string
+          nullable: true
+          readOnly: true
+        productID:
+          type: string
+          nullable: true
+          readOnly: true
+        lastBootUpTime:
+          type: string
+          nullable: true
+          readOnly: true
+      additionalProperties: false
+    JsonVMwarePackage:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          type: string
+          nullable: true
+          readOnly: true
+        architecture:
+          type: string
+          nullable: true
+          readOnly: true
+        size:
+          type: string
+          nullable: true
+          readOnly: true
+        publisher:
+          type: string
+          nullable: true
+          readOnly: true
+        summary:
+          type: string
+          nullable: true
+          readOnly: true
+        total:
+          type: string
+          nullable: true
+          readOnly: true
+        used:
+          type: string
+          nullable: true
+          readOnly: true
+      additionalProperties: false
+    JsonVMwareProcessor:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        caption:
+          type: string
+          nullable: true
+          readOnly: true
+        index:
+          type: string
+          nullable: true
+          readOnly: true
+        name:
+          type: string
+          nullable: true
+          readOnly: true
+        manufacturer:
+          type: string
+          nullable: true
+          readOnly: true
+        maxClockSpeed:
+          type: string
+          nullable: true
+          readOnly: true
+        busHz:
+          type: string
+          nullable: true
+          readOnly: true
+        numberOfCores:
+          type: string
+          nullable: true
+          readOnly: true
+        numberOfLogicalProcessors:
+          type: string
+          nullable: true
+          readOnly: true
+      additionalProperties: false
+    JsonVMwareResourcePool:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          type: string
+          nullable: true
+          readOnly: true
+        objectType:
+          type: string
+          nullable: true
+          readOnly: true
+        elementName:
+          type: string
+          nullable: true
+          readOnly: true
+        owner:
+          type: string
+          nullable: true
+          readOnly: true
+        parent:
+          type: string
+          nullable: true
+          readOnly: true
+      additionalProperties: false
+    JsonVSphere:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        deviceId:
+          type: string
+          format: uuid
+        apiType:
+          type: string
+          nullable: true
+          readOnly: true
+        apiVersion:
+          type: string
+          nullable: true
+          readOnly: true
+        name:
+          type: string
+          nullable: true
+          readOnly: true
+        version:
+          type: string
+          nullable: true
+          readOnly: true
+        build:
+          type: string
+          nullable: true
+          readOnly: true
+        caption:
+          type: string
+          nullable: true
+          readOnly: true
+        manufacturer:
+          type: string
+          nullable: true
+          readOnly: true
+        productID:
+          type: string
+          nullable: true
+          readOnly: true
+        server:
+          type: string
+          nullable: true
+          readOnly: true
+        serverURL:
+          type: string
+          nullable: true
+          readOnly: true
+        esxHosts:
+          type: array
+          items:
+            $ref: '#/components/schemas/JsonEsxComputerSystem'
+          nullable: true
+          readOnly: true
+        dataCenters:
+          type: array
+          items:
+            $ref: '#/components/schemas/JsonVMwareDataCenter'
+          nullable: true
+          readOnly: true
+        folders:
+          type: array
+          items:
+            $ref: '#/components/schemas/JsonVMwareFolder'
+          nullable: true
+          readOnly: true
+        clusterDrsConfigs:
+          type: array
+          items:
+            $ref: '#/components/schemas/JsonVMwareClusterDrsConfig'
+          nullable: true
+          readOnly: true
+        clusterDrsVmConfigs:
+          type: array
+          items:
+            $ref: '#/components/schemas/JsonVMwareClusterDrsVmConfig'
+          nullable: true
+          readOnly: true
+        clusterRules:
+          type: array
+          items:
+            $ref: '#/components/schemas/JsonVMwareClusterRule'
+          nullable: true
+          readOnly: true
+        clusterGroups:
+          type: array
+          items:
+            $ref: '#/components/schemas/JsonVMwareClusterGroup'
+          nullable: true
+          readOnly: true
+        clusters:
+          type: array
+          items:
+            $ref: '#/components/schemas/JsonVMwareCluster'
+          nullable: true
+          readOnly: true
+        clusterTagCategories:
+          type: array
+          items:
+            $ref: '#/components/schemas/JsonVMwareClusterTagCategories'
+          nullable: true
+          readOnly: true
+        computeResources:
+          type: array
+          items:
+            $ref: '#/components/schemas/JsonVMwareComputeResource'
+          nullable: true
+          readOnly: true
+        resourcePools:
+          type: array
+          items:
+            $ref: '#/components/schemas/JsonVMwareResourcePool'
+          nullable: true
+          readOnly: true
+      additionalProperties: false
+    JsonWindowsService:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        deviceId:
+          type: string
+          format: uuid
+        name:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+        displayName:
+          type: string
+          nullable: true
+        state:
+          type: string
+          nullable: true
+        pathName:
+          type: string
+          nullable: true
+        desktopInteract:
+          type: boolean
+      additionalProperties: false
+    JsonZone:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          type: string
+          nullable: true
+          readOnly: true
+        state:
+          type: string
+          nullable: true
+          readOnly: true
+        path:
+          type: string
+          nullable: true
+          readOnly: true
+        brand:
+          type: string
+          nullable: true
+          readOnly: true
+        ipType:
+          type: string
+          nullable: true
+          readOnly: true
+        resourceControl:
+          type: array
+          items:
+            $ref: '#/components/schemas/JsonZoneResourceControl'
+          nullable: true
+          readOnly: true
+      additionalProperties: false
+    JsonZoneInfo:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        deviceId:
+          type: string
+          format: uuid
+        zone:
+          $ref: '#/components/schemas/JsonZone'
+      additionalProperties: false
+    JsonZoneResourceControl:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          type: string
+          nullable: true
+          readOnly: true
+        privilege:
+          type: string
+          nullable: true
+          readOnly: true
+        value:
+          type: string
+          nullable: true
+          readOnly: true
+        flag:
+          type: string
+          nullable: true
+          readOnly: true
+        action:
+          type: string
+          nullable: true
+          readOnly: true
+        recipient:
+          type: string
+          nullable: true
+          readOnly: true
+      additionalProperties: false
+    MissingCredentialBehaviour:
+      enum:
+        - 0
+        - 1
+      type: integer
+      format: int32
+    NetworkTargetingType:
+      enum:
+        - 0
+        - 1
+        - 2
+      type: integer
+      format: int32
+    NewEntityFoundBehaviour:
+      enum:
+        - 0
+        - 1
+        - 2
+      type: integer
+      format: int32
+    NewOracleDbFoundBehaviour:
+      enum:
+        - 0
+        - 1
+        - 2
+        - 3
+      type: integer
+      format: int32
+    PortServiceType:
+      enum:
+        - 1
+        - 2
+        - 4
+        - 8
+        - 16
+        - 32
+        - 64
+        - 128
+        - 256
+        - 512
+        - 1024
+        - 2048
+        - 4096
+      type: integer
+      format: int32
+    StringStringKeyValuePair:
+      type: object
+      properties:
+        key:
+          type: string
+          nullable: true
+        value:
+          type: string
+          nullable: true
+      additionalProperties: false
+  securitySchemes:
+    ApiKey:
+      type: apiKey
+      description: Backend API key
+      name: ApiKey
+      in: header
