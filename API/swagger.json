@@ -1,12 +1,12 @@
 {
-  "openapi": "3.0.1",
+  "openapi": "3.0.4",
   "info": {
     "title": "External API",
     "description": "The API for integration with third-party services.",
     "version": "v1"
   },
   "paths": {
-    "/api/v1/Bios/GetBiosByDeviceId": {
+    "/api/v1/Bios/CountByDeviceId": {
       "get": {
         "tags": [
           "Bios"
@@ -28,7 +28,101 @@
         }
       }
     },
-    "/api/v1/Bios/GetBiosById": {
+    "/api/v1/Bios/ByDeviceId": {
+      "get": {
+        "tags": [
+          "Bios"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "LastId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Bios/ByManyDeviceIds": {
+      "post": {
+        "tags": [
+          "Bios"
+        ],
+        "parameters": [
+          {
+            "name": "LastId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Bios/ById": {
       "get": {
         "tags": [
           "Bios"
@@ -82,8 +176,8 @@
         }
       }
     },
-    "/api/v1/Bios/GetByDeviceIdList": {
-      "get": {
+    "/api/v1/Bios/ByManyIds": {
+      "post": {
         "tags": [
           "Bios"
         ],
@@ -118,7 +212,7 @@
         }
       }
     },
-    "/api/v1/Chassis/GetChassisByDeviceId": {
+    "/api/v1/Chassis/CountByDeviceId": {
       "get": {
         "tags": [
           "Chassis"
@@ -140,7 +234,101 @@
         }
       }
     },
-    "/api/v1/Chassis/GetChassisById": {
+    "/api/v1/Chassis/ByDeviceId": {
+      "get": {
+        "tags": [
+          "Chassis"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "LastId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Chassis/ByManyDeviceIds": {
+      "post": {
+        "tags": [
+          "Chassis"
+        ],
+        "parameters": [
+          {
+            "name": "LastId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Chassis/ById": {
       "get": {
         "tags": [
           "Chassis"
@@ -194,8 +382,8 @@
         }
       }
     },
-    "/api/v1/Chassis/GetByDeviceIdList": {
-      "get": {
+    "/api/v1/Chassis/ByManyIds": {
+      "post": {
         "tags": [
           "Chassis"
         ],
@@ -230,7 +418,7 @@
         }
       }
     },
-    "/api/v1/ComputerSystemProducts/GetComputerSystemProductsByDeviceId": {
+    "/api/v1/ComputerSystemProducts/CountByDeviceId": {
       "get": {
         "tags": [
           "ComputerSystemProducts"
@@ -252,7 +440,101 @@
         }
       }
     },
-    "/api/v1/ComputerSystemProducts/GetComputerSystemProductById": {
+    "/api/v1/ComputerSystemProducts/ByDeviceId": {
+      "get": {
+        "tags": [
+          "ComputerSystemProducts"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "LastId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/ComputerSystemProducts/ByManyDeviceIds": {
+      "post": {
+        "tags": [
+          "ComputerSystemProducts"
+        ],
+        "parameters": [
+          {
+            "name": "LastId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/ComputerSystemProducts/ById": {
       "get": {
         "tags": [
           "ComputerSystemProducts"
@@ -306,8 +588,8 @@
         }
       }
     },
-    "/api/v1/ComputerSystemProducts/GetByDeviceIdList": {
-      "get": {
+    "/api/v1/ComputerSystemProducts/ByManyIds": {
+      "post": {
         "tags": [
           "ComputerSystemProducts"
         ],
@@ -342,7 +624,7 @@
         }
       }
     },
-    "/api/v1/Cpus/GetCPUDataByDeviceId": {
+    "/api/v1/Cpus/CountByDeviceId": {
       "get": {
         "tags": [
           "Cpus"
@@ -364,7 +646,101 @@
         }
       }
     },
-    "/api/v1/Cpus/GetCPUDataById": {
+    "/api/v1/Cpus/ByDeviceId": {
+      "get": {
+        "tags": [
+          "Cpus"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "LastId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Cpus/ByManyDeviceIds": {
+      "post": {
+        "tags": [
+          "Cpus"
+        ],
+        "parameters": [
+          {
+            "name": "LastId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Cpus/ById": {
       "get": {
         "tags": [
           "Cpus"
@@ -418,8 +794,8 @@
         }
       }
     },
-    "/api/v1/Cpus/GetByDeviceIdList": {
-      "get": {
+    "/api/v1/Cpus/ByManyIds": {
+      "post": {
         "tags": [
           "Cpus"
         ],
@@ -454,7 +830,103 @@
         }
       }
     },
-    "/api/v1/Devices/GetDeviceById": {
+    "/api/v1/DeviceRelations/GetTypes": {
+      "get": {
+        "tags": [
+          "DeviceRelations"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/JsonDeviceRelationType"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/JsonDeviceRelationType"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/JsonDeviceRelationType"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/DeviceRelations/ByDeviceId": {
+      "get": {
+        "tags": [
+          "DeviceRelations"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/DeviceRelations/ByManyDeviceIds": {
+      "post": {
+        "tags": [
+          "DeviceRelations"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Devices/ById": {
       "get": {
         "tags": [
           "Devices"
@@ -499,14 +971,6 @@
               "format": "int32",
               "default": 100
             }
-          },
-          {
-            "name": "InventoryDateLaterThen",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "format": "date-time"
-            }
           }
         ],
         "responses": {
@@ -516,8 +980,8 @@
         }
       }
     },
-    "/api/v1/Devices/GetByDeviceIdList": {
-      "get": {
+    "/api/v1/Devices/ByManyIds": {
+      "post": {
         "tags": [
           "Devices"
         ],
@@ -552,7 +1016,46 @@
         }
       }
     },
-    "/api/v1/Disks/GetDisksByDeviceId": {
+    "/api/v1/Devices/by-inventory": {
+      "get": {
+        "tags": [
+          "Devices"
+        ],
+        "parameters": [
+          {
+            "name": "inventoryDateLaterThen",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "lastId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Disks/CountByDeviceId": {
       "get": {
         "tags": [
           "Disks"
@@ -574,7 +1077,101 @@
         }
       }
     },
-    "/api/v1/Disks/GetDiskById": {
+    "/api/v1/Disks/ByDeviceId": {
+      "get": {
+        "tags": [
+          "Disks"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "LastId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Disks/ByManyDeviceIds": {
+      "post": {
+        "tags": [
+          "Disks"
+        ],
+        "parameters": [
+          {
+            "name": "LastId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Disks/ById": {
       "get": {
         "tags": [
           "Disks"
@@ -628,8 +1225,8 @@
         }
       }
     },
-    "/api/v1/Disks/GetByDeviceIdList": {
-      "get": {
+    "/api/v1/Disks/ByManyIds": {
+      "post": {
         "tags": [
           "Disks"
         ],
@@ -664,7 +1261,7 @@
         }
       }
     },
-    "/api/v1/Docker/GetDockerByDeviceId": {
+    "/api/v1/Docker/CountByDeviceId": {
       "get": {
         "tags": [
           "Docker"
@@ -686,7 +1283,65 @@
         }
       }
     },
-    "/api/v1/Docker/GetDockerById": {
+    "/api/v1/Docker/ByDeviceId": {
+      "get": {
+        "tags": [
+          "Docker"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Docker/ByManyDeviceIds": {
+      "post": {
+        "tags": [
+          "Docker"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Docker/ById": {
       "get": {
         "tags": [
           "Docker"
@@ -740,8 +1395,8 @@
         }
       }
     },
-    "/api/v1/Docker/GetByDeviceIdList": {
-      "get": {
+    "/api/v1/Docker/ByManyIds": {
+      "post": {
         "tags": [
           "Docker"
         ],
@@ -776,7 +1431,7 @@
         }
       }
     },
-    "/api/v1/File/GetFilesByDeviceId": {
+    "/api/v1/File/CountByDeviceId": {
       "get": {
         "tags": [
           "File"
@@ -798,7 +1453,101 @@
         }
       }
     },
-    "/api/v1/File/GetFileById": {
+    "/api/v1/File/ByDeviceId": {
+      "get": {
+        "tags": [
+          "File"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "LastId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/File/ByManyDeviceIds": {
+      "post": {
+        "tags": [
+          "File"
+        ],
+        "parameters": [
+          {
+            "name": "LastId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/File/ById": {
       "get": {
         "tags": [
           "File"
@@ -852,8 +1601,8 @@
         }
       }
     },
-    "/api/v1/File/GetByDeviceIdList": {
-      "get": {
+    "/api/v1/File/ByManyIds": {
+      "post": {
         "tags": [
           "File"
         ],
@@ -888,45 +1637,6 @@
         }
       }
     },
-    "/api/v1/Fingerprints/GetFingerprintsByDeviceId": {
-      "get": {
-        "tags": [
-          "Fingerprints"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          },
-          {
-            "name": "lastId",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          },
-          {
-            "name": "count",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 100
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
     "/api/v1/Fingerprints/GetFingerprintsByType": {
       "get": {
         "tags": [
@@ -941,6 +1651,14 @@
             }
           },
           {
+            "name": "LastId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
             "name": "count",
             "in": "query",
             "schema": {
@@ -957,7 +1675,7 @@
         }
       }
     },
-    "/api/v1/Fingerprints/CountSoftwareFingerprints": {
+    "/api/v1/Fingerprints/CountByDeviceId": {
       "get": {
         "tags": [
           "Fingerprints"
@@ -979,7 +1697,101 @@
         }
       }
     },
-    "/api/v1/Fingerprints/GetSoftwareFingerprintById": {
+    "/api/v1/Fingerprints/ByDeviceId": {
+      "get": {
+        "tags": [
+          "Fingerprints"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "LastId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Fingerprints/ByManyDeviceIds": {
+      "post": {
+        "tags": [
+          "Fingerprints"
+        ],
+        "parameters": [
+          {
+            "name": "LastId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Fingerprints/ById": {
       "get": {
         "tags": [
           "Fingerprints"
@@ -1033,8 +1845,8 @@
         }
       }
     },
-    "/api/v1/Fingerprints/GetByDeviceIdList": {
-      "get": {
+    "/api/v1/Fingerprints/ByManyIds": {
+      "post": {
         "tags": [
           "Fingerprints"
         ],
@@ -1069,7 +1881,7 @@
         }
       }
     },
-    "/api/v1/Gpus/GetVideoControllersByDeviceId": {
+    "/api/v1/Gpus/CountByDeviceId": {
       "get": {
         "tags": [
           "Gpus"
@@ -1091,7 +1903,101 @@
         }
       }
     },
-    "/api/v1/Gpus/GetVideoControllerById": {
+    "/api/v1/Gpus/ByDeviceId": {
+      "get": {
+        "tags": [
+          "Gpus"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "LastId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Gpus/ByManyDeviceIds": {
+      "post": {
+        "tags": [
+          "Gpus"
+        ],
+        "parameters": [
+          {
+            "name": "LastId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Gpus/ById": {
       "get": {
         "tags": [
           "Gpus"
@@ -1145,8 +2051,8 @@
         }
       }
     },
-    "/api/v1/Gpus/GetByDeviceIdList": {
-      "get": {
+    "/api/v1/Gpus/ByManyIds": {
+      "post": {
         "tags": [
           "Gpus"
         ],
@@ -1181,7 +2087,87 @@
         }
       }
     },
-    "/api/v1/HyperVs/GetHyperVByDeviceId": {
+    "/api/v1/HyperVs/CountByDeviceId": {
+      "get": {
+        "tags": [
+          "HyperVs"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/HyperVs/ByDeviceId": {
+      "get": {
+        "tags": [
+          "HyperVs"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/HyperVs/ByManyDeviceIds": {
+      "post": {
+        "tags": [
+          "HyperVs"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/HyperVs/ById": {
       "get": {
         "tags": [
           "HyperVs"
@@ -1235,8 +2221,8 @@
         }
       }
     },
-    "/api/v1/HyperVs/GetByDeviceIdList": {
-      "get": {
+    "/api/v1/HyperVs/ByManyIds": {
+      "post": {
         "tags": [
           "HyperVs"
         ],
@@ -1271,56 +2257,11 @@
         }
       }
     },
-    "/api/v1/InventoryScriptResults/GetInventoryScriptResultsByDeviceId": {
-      "get": {
+    "/api/v1/InventoryScriptResults/ByManyDeviceIds": {
+      "post": {
         "tags": [
           "InventoryScriptResults"
         ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/v1/InventoryScriptResults/GetInventoryScriptResultById": {
-      "get": {
-        "tags": [
-          "InventoryScriptResults"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/v1/InventoryScriptResults": {
-      "get": {
-        "tags": [
-          "InventoryScriptResults"
-        ],
-        "operationId": "GetInventoryScriptResults",
         "parameters": [
           {
             "name": "LastId",
@@ -1339,18 +2280,6 @@
               "default": 100
             }
           }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/v1/InventoryScriptResults/GetByDeviceIdList": {
-      "get": {
-        "tags": [
-          "InventoryScriptResults"
         ],
         "requestBody": {
           "content": {
@@ -1376,6 +2305,144 @@
             }
           }
         },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Keyboards/CountByDeviceId": {
+      "get": {
+        "tags": [
+          "Keyboards"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Keyboards/ByDeviceId": {
+      "get": {
+        "tags": [
+          "Keyboards"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "LastId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Keyboards/ByManyDeviceIds": {
+      "post": {
+        "tags": [
+          "Keyboards"
+        ],
+        "parameters": [
+          {
+            "name": "LastId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Keyboards/ById": {
+      "get": {
+        "tags": [
+          "Keyboards"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -1415,8 +2482,8 @@
         }
       }
     },
-    "/api/v1/Keyboards/GetByDeviceIdList": {
-      "get": {
+    "/api/v1/Keyboards/ByManyIds": {
+      "post": {
         "tags": [
           "Keyboards"
         ],
@@ -1451,7 +2518,392 @@
         }
       }
     },
-    "/api/v1/LogicalVolumes/GetLogicalVolumesByDeviceId": {
+    "/api/v1/license-contracts/import": {
+      "post": {
+        "tags": [
+          "LicenseContracts"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "File": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "Text": {
+                    "type": "string"
+                  },
+                  "MinimumProductConfidence": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "ImportMode": {
+                    "$ref": "#/components/schemas/LicenseContractImportMode"
+                  }
+                }
+              },
+              "encoding": {
+                "File": {
+                  "style": "form"
+                },
+                "Text": {
+                  "style": "form"
+                },
+                "MinimumProductConfidence": {
+                  "style": "form"
+                },
+                "ImportMode": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LicenseContractImportResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LicenseContractImportResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LicenseContractImportResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LicenseContractImportResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LicenseContractImportResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LicenseContractImportResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/license-contracts/import-text": {
+      "post": {
+        "tags": [
+          "LicenseContracts"
+        ],
+        "parameters": [
+          {
+            "name": "minimumProductConfidence",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 90
+            }
+          },
+          {
+            "name": "importMode",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/LicenseContractImportMode"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LicenseContractImportResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LicenseContractImportResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LicenseContractImportResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LicenseContractImportResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LicenseContractImportResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LicenseContractImportResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/license-contracts/import-file": {
+      "post": {
+        "tags": [
+          "LicenseContracts"
+        ],
+        "parameters": [
+          {
+            "name": "minimumProductConfidence",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 90
+            }
+          },
+          {
+            "name": "importMode",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/LicenseContractImportMode"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "file": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LicenseContractImportResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LicenseContractImportResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LicenseContractImportResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LicenseContractImportResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LicenseContractImportResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LicenseContractImportResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/license-contracts/import-multiple": {
+      "post": {
+        "tags": [
+          "LicenseContracts"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Files": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/FileUploadItem"
+                    }
+                  },
+                  "MinimumProductConfidence": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "ImportMode": {
+                    "$ref": "#/components/schemas/LicenseContractImportMode"
+                  }
+                }
+              },
+              "encoding": {
+                "Files": {
+                  "style": "form"
+                },
+                "MinimumProductConfidence": {
+                  "style": "form"
+                },
+                "ImportMode": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LicenseContractMultipleImportResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LicenseContractMultipleImportResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LicenseContractMultipleImportResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LicenseContractMultipleImportResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LicenseContractMultipleImportResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LicenseContractMultipleImportResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/license-contracts/import-progress/{sessionId}": {
+      "get": {
+        "tags": [
+          "LicenseContracts"
+        ],
+        "parameters": [
+          {
+            "name": "sessionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LicenseContractImportProgressResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LicenseContractImportProgressResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LicenseContractImportProgressResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/LogicalVolumes/CountByDeviceId": {
       "get": {
         "tags": [
           "LogicalVolumes"
@@ -1473,7 +2925,101 @@
         }
       }
     },
-    "/api/v1/LogicalVolumes/GetLogicalVolumeById": {
+    "/api/v1/LogicalVolumes/ByDeviceId": {
+      "get": {
+        "tags": [
+          "LogicalVolumes"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "LastId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/LogicalVolumes/ByManyDeviceIds": {
+      "post": {
+        "tags": [
+          "LogicalVolumes"
+        ],
+        "parameters": [
+          {
+            "name": "LastId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/LogicalVolumes/ById": {
       "get": {
         "tags": [
           "LogicalVolumes"
@@ -1527,8 +3073,8 @@
         }
       }
     },
-    "/api/v1/LogicalVolumes/GetByDeviceIdList": {
-      "get": {
+    "/api/v1/LogicalVolumes/ByManyIds": {
+      "post": {
         "tags": [
           "LogicalVolumes"
         ],
@@ -1563,7 +3109,97 @@
         }
       }
     },
-    "/api/v1/NetworkAdapters/GetNetworkAdaptersByDeviceID": {
+    "/api/v1/MsCluster/ById": {
+      "get": {
+        "tags": [
+          "MsCluster"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/MsCluster": {
+      "get": {
+        "tags": [
+          "MsCluster"
+        ],
+        "operationId": "GetMsCluster",
+        "parameters": [
+          {
+            "name": "LastId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/MsCluster/ByManyIds": {
+      "post": {
+        "tags": [
+          "MsCluster"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/NetworkAdapters/CountByDeviceId": {
       "get": {
         "tags": [
           "NetworkAdapters"
@@ -1585,7 +3221,101 @@
         }
       }
     },
-    "/api/v1/NetworkAdapters/GetNetworkAdapterById": {
+    "/api/v1/NetworkAdapters/ByDeviceId": {
+      "get": {
+        "tags": [
+          "NetworkAdapters"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "LastId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/NetworkAdapters/ByManyDeviceIds": {
+      "post": {
+        "tags": [
+          "NetworkAdapters"
+        ],
+        "parameters": [
+          {
+            "name": "LastId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/NetworkAdapters/ById": {
       "get": {
         "tags": [
           "NetworkAdapters"
@@ -1639,8 +3369,8 @@
         }
       }
     },
-    "/api/v1/NetworkAdapters/GetByDeviceIdList": {
-      "get": {
+    "/api/v1/NetworkAdapters/ByManyIds": {
+      "post": {
         "tags": [
           "NetworkAdapters"
         ],
@@ -1668,6 +3398,28 @@
             }
           }
         },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Networks/ById": {
+      "get": {
+        "tags": [
+          "Networks"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -1707,11 +3459,35 @@
         }
       }
     },
-    "/api/v1/OperatingSystems/ListOperatingSystems": {
-      "get": {
+    "/api/v1/Networks/ByManyIds": {
+      "post": {
         "tags": [
-          "OperatingSystems"
+          "Networks"
         ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "OK"
@@ -1719,7 +3495,7 @@
         }
       }
     },
-    "/api/v1/OperatingSystems/GetOperatingSystemById": {
+    "/api/v1/OperatingSystems/CountByDeviceId": {
       "get": {
         "tags": [
           "OperatingSystems"
@@ -1741,7 +3517,101 @@
         }
       }
     },
-    "/api/v1/OperatingSystems/GetOperatingSystemByDeviceId": {
+    "/api/v1/OperatingSystems/ByDeviceId": {
+      "get": {
+        "tags": [
+          "OperatingSystems"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "LastId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/OperatingSystems/ByManyDeviceIds": {
+      "post": {
+        "tags": [
+          "OperatingSystems"
+        ],
+        "parameters": [
+          {
+            "name": "LastId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/OperatingSystems/ById": {
       "get": {
         "tags": [
           "OperatingSystems"
@@ -1795,8 +3665,8 @@
         }
       }
     },
-    "/api/v1/OperatingSystems/GetByDeviceIdList": {
-      "get": {
+    "/api/v1/OperatingSystems/ByManyIds": {
+      "post": {
         "tags": [
           "OperatingSystems"
         ],
@@ -1961,6 +3831,110 @@
         }
       }
     },
+    "/api/v1/Operations/device-id-unassign": {
+      "delete": {
+        "tags": [
+          "Operations"
+        ],
+        "parameters": [
+          {
+            "name": "deviceId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "resourceGroupId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Operations/device-id-assign": {
+      "post": {
+        "tags": [
+          "Operations"
+        ],
+        "parameters": [
+          {
+            "name": "deviceId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "resourceGroupId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "enforceUniqueness",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Operations/device-ids-assign": {
+      "post": {
+        "tags": [
+          "Operations"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceAssignmentContract"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceAssignmentContract"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceAssignmentContract"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceAssignmentContract"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/v1/Operations/import-id-delete": {
       "delete": {
         "tags": [
@@ -1975,6 +3949,71 @@
             }
           }
         ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Operations/import-id-unassign": {
+      "delete": {
+        "tags": [
+          "Operations"
+        ],
+        "parameters": [
+          {
+            "name": "customImportId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "resourceGroupId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Operations/resource-group-import": {
+      "post": {
+        "tags": [
+          "Operations"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResourceGroupContract"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResourceGroupContract"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResourceGroupContract"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResourceGroupContract"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "OK"
@@ -2018,7 +4057,97 @@
         }
       }
     },
-    "/api/v1/OracleDbs/GetOracleDatabaseByDeviceId": {
+    "/api/v1/OracleComponents/ById": {
+      "get": {
+        "tags": [
+          "OracleComponents"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/OracleComponents": {
+      "get": {
+        "tags": [
+          "OracleComponents"
+        ],
+        "operationId": "GetOracleComponents",
+        "parameters": [
+          {
+            "name": "LastId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/OracleComponents/ByManyIds": {
+      "post": {
+        "tags": [
+          "OracleComponents"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/OracleDbs/CountByDeviceId": {
       "get": {
         "tags": [
           "OracleDbs"
@@ -2040,7 +4169,65 @@
         }
       }
     },
-    "/api/v1/OracleDbs/GetOracleById": {
+    "/api/v1/OracleDbs/ByDeviceId": {
+      "get": {
+        "tags": [
+          "OracleDbs"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/OracleDbs/ByManyDeviceIds": {
+      "post": {
+        "tags": [
+          "OracleDbs"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/OracleDbs/ById": {
       "get": {
         "tags": [
           "OracleDbs"
@@ -2094,8 +4281,8 @@
         }
       }
     },
-    "/api/v1/OracleDbs/GetByDeviceIdList": {
-      "get": {
+    "/api/v1/OracleDbs/ByManyIds": {
+      "post": {
         "tags": [
           "OracleDbs"
         ],
@@ -2130,12 +4317,34 @@
         }
       }
     },
-    "/api/v1/OrganizationUnit": {
+    "/api/v1/OracleDfus/ById": {
       "get": {
         "tags": [
-          "OrganizationUnit"
+          "OracleDfus"
         ],
-        "operationId": "GetOrganizationUnit",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/OracleDfus": {
+      "get": {
+        "tags": [
+          "OracleDfus"
+        ],
+        "operationId": "GetOracleDfus",
         "parameters": [
           {
             "name": "LastId",
@@ -2152,6 +4361,710 @@
               "type": "integer",
               "format": "int32",
               "default": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/OracleDfus/ByManyIds": {
+      "post": {
+        "tags": [
+          "OracleDfus"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/OracleOptions/ById": {
+      "get": {
+        "tags": [
+          "OracleOptions"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/OracleOptions": {
+      "get": {
+        "tags": [
+          "OracleOptions"
+        ],
+        "operationId": "GetOracleOptions",
+        "parameters": [
+          {
+            "name": "LastId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/OracleOptions/ByManyIds": {
+      "post": {
+        "tags": [
+          "OracleOptions"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/OracleParameters/ById": {
+      "get": {
+        "tags": [
+          "OracleParameters"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/OracleParameters": {
+      "get": {
+        "tags": [
+          "OracleParameters"
+        ],
+        "operationId": "GetOracleParameters",
+        "parameters": [
+          {
+            "name": "LastId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/OracleParameters/ByManyIds": {
+      "post": {
+        "tags": [
+          "OracleParameters"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/OracleReports/CountByDeviceId": {
+      "get": {
+        "tags": [
+          "OracleReports"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/OracleReports/ByDeviceId": {
+      "get": {
+        "tags": [
+          "OracleReports"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/OracleReports/ByManyDeviceIds": {
+      "post": {
+        "tags": [
+          "OracleReports"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/OracleReports/ById": {
+      "get": {
+        "tags": [
+          "OracleReports"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/OracleReports": {
+      "get": {
+        "tags": [
+          "OracleReports"
+        ],
+        "operationId": "GetOracleReports",
+        "parameters": [
+          {
+            "name": "LastId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/OracleReports/ByManyIds": {
+      "post": {
+        "tags": [
+          "OracleReports"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/OracleScriptDfus/ById": {
+      "get": {
+        "tags": [
+          "OracleScriptDfus"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/OracleScriptDfus": {
+      "get": {
+        "tags": [
+          "OracleScriptDfus"
+        ],
+        "operationId": "GetOracleScriptDfus",
+        "parameters": [
+          {
+            "name": "LastId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/OracleScriptDfus/ByManyIds": {
+      "post": {
+        "tags": [
+          "OracleScriptDfus"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/OracleVOptions/ById": {
+      "get": {
+        "tags": [
+          "OracleVOptions"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/OracleVOptions": {
+      "get": {
+        "tags": [
+          "OracleVOptions"
+        ],
+        "operationId": "GetOracleVOptions",
+        "parameters": [
+          {
+            "name": "LastId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/OracleVOptions/ByManyIds": {
+      "post": {
+        "tags": [
+          "OracleVOptions"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/PointingDevices/CountByDeviceId": {
+      "get": {
+        "tags": [
+          "PointingDevices"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/PointingDevices/ByDeviceId": {
+      "get": {
+        "tags": [
+          "PointingDevices"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "LastId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/PointingDevices/ByManyDeviceIds": {
+      "post": {
+        "tags": [
+          "PointingDevices"
+        ],
+        "parameters": [
+          {
+            "name": "LastId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/PointingDevices/ById": {
+      "get": {
+        "tags": [
+          "PointingDevices"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
             }
           }
         ],
@@ -2194,8 +5107,8 @@
         }
       }
     },
-    "/api/v1/PointingDevices/GetByDeviceIdList": {
-      "get": {
+    "/api/v1/PointingDevices/ByManyIds": {
+      "post": {
         "tags": [
           "PointingDevices"
         ],
@@ -2230,7 +5143,7 @@
         }
       }
     },
-    "/api/v1/Processes/GetProcessesByDeviceId": {
+    "/api/v1/Processes/CountByDeviceId": {
       "get": {
         "tags": [
           "Processes"
@@ -2252,7 +5165,101 @@
         }
       }
     },
-    "/api/v1/Processes/GetProcessById": {
+    "/api/v1/Processes/ByDeviceId": {
+      "get": {
+        "tags": [
+          "Processes"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "LastId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Processes/ByManyDeviceIds": {
+      "post": {
+        "tags": [
+          "Processes"
+        ],
+        "parameters": [
+          {
+            "name": "LastId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Processes/ById": {
       "get": {
         "tags": [
           "Processes"
@@ -2306,8 +5313,8 @@
         }
       }
     },
-    "/api/v1/Processes/GetByDeviceIdList": {
-      "get": {
+    "/api/v1/Processes/ByManyIds": {
+      "post": {
         "tags": [
           "Processes"
         ],
@@ -2342,7 +5349,7 @@
         }
       }
     },
-    "/api/v1/RegistryEntries/GetRegistryEntriesByDeviceId": {
+    "/api/v1/RegistryEntries/CountByDeviceId": {
       "get": {
         "tags": [
           "RegistryEntries"
@@ -2364,7 +5371,101 @@
         }
       }
     },
-    "/api/v1/RegistryEntries/GetRegistryEntryById": {
+    "/api/v1/RegistryEntries/ByDeviceId": {
+      "get": {
+        "tags": [
+          "RegistryEntries"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "LastId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/RegistryEntries/ByManyDeviceIds": {
+      "post": {
+        "tags": [
+          "RegistryEntries"
+        ],
+        "parameters": [
+          {
+            "name": "LastId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/RegistryEntries/ById": {
       "get": {
         "tags": [
           "RegistryEntries"
@@ -2418,8 +5519,8 @@
         }
       }
     },
-    "/api/v1/RegistryEntries/GetByDeviceIdList": {
-      "get": {
+    "/api/v1/RegistryEntries/ByManyIds": {
+      "post": {
         "tags": [
           "RegistryEntries"
         ],
@@ -2447,6 +5548,118 @@
             }
           }
         },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/ResourceGroup/ById": {
+      "get": {
+        "tags": [
+          "ResourceGroup"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/ResourceGroup": {
+      "get": {
+        "tags": [
+          "ResourceGroup"
+        ],
+        "operationId": "GetResourceGroup",
+        "parameters": [
+          {
+            "name": "LastId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/ResourceGroup/ByManyIds": {
+      "post": {
+        "tags": [
+          "ResourceGroup"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Runners/ById": {
+      "get": {
+        "tags": [
+          "Runners"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -2486,13 +5699,78 @@
         }
       }
     },
-    "/api/v1/SccmHosts": {
+    "/api/v1/Runners/ByManyIds": {
+      "post": {
+        "tags": [
+          "Runners"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/ServerFeatures/CountByDeviceId": {
       "get": {
         "tags": [
-          "SccmHosts"
+          "ServerFeatures"
         ],
-        "operationId": "GetSccmHosts",
         "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/ServerFeatures/ByDeviceId": {
+      "get": {
+        "tags": [
+          "ServerFeatures"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
           {
             "name": "LastId",
             "in": "query",
@@ -2518,21 +5796,54 @@
         }
       }
     },
-    "/api/v1/ServerFeatures/GetServerFeaturesByDeviceId": {
-      "get": {
+    "/api/v1/ServerFeatures/ByManyDeviceIds": {
+      "post": {
         "tags": [
           "ServerFeatures"
         ],
         "parameters": [
           {
-            "name": "id",
+            "name": "LastId",
             "in": "query",
             "schema": {
               "type": "string",
               "format": "uuid"
             }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            }
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "OK"
@@ -2540,7 +5851,7 @@
         }
       }
     },
-    "/api/v1/ServerFeatures/GetServerFeatureById": {
+    "/api/v1/ServerFeatures/ById": {
       "get": {
         "tags": [
           "ServerFeatures"
@@ -2594,8 +5905,8 @@
         }
       }
     },
-    "/api/v1/ServerFeatures/GetByDeviceIdList": {
-      "get": {
+    "/api/v1/ServerFeatures/ByManyIds": {
+      "post": {
         "tags": [
           "ServerFeatures"
         ],
@@ -2630,6 +5941,28 @@
         }
       }
     },
+    "/api/v1/Site/ById": {
+      "get": {
+        "tags": [
+          "Site"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/v1/Site": {
       "get": {
         "tags": [
@@ -2652,6 +5985,64 @@
               "type": "integer",
               "format": "int32",
               "default": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Site/ByManyIds": {
+      "post": {
+        "tags": [
+          "Site"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/StoredCredentials/ById": {
+      "get": {
+        "tags": [
+          "StoredCredentials"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
             }
           }
         ],
@@ -2694,86 +6085,10 @@
         }
       }
     },
-    "/api/v1/VSpheres/GetVSphereByDeviceId": {
-      "get": {
+    "/api/v1/StoredCredentials/ByManyIds": {
+      "post": {
         "tags": [
-          "VSpheres"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/v1/VSpheres/GetVSphereById": {
-      "get": {
-        "tags": [
-          "VSpheres"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/v1/VSpheres": {
-      "get": {
-        "tags": [
-          "VSpheres"
-        ],
-        "operationId": "GetVSpheres",
-        "parameters": [
-          {
-            "name": "LastId",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          },
-          {
-            "name": "count",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 100
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/v1/VSpheres/GetByDeviceIdList": {
-      "get": {
-        "tags": [
-          "VSpheres"
+          "StoredCredentials"
         ],
         "requestBody": {
           "content": {
@@ -2806,7 +6121,213 @@
         }
       }
     },
-    "/api/v1/WindowsServices/GetWindowsServicesByDeviceId": {
+    "/api/v1/UsageMetering/CountByDeviceId": {
+      "get": {
+        "tags": [
+          "UsageMetering"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/UsageMetering/ByDeviceId": {
+      "get": {
+        "tags": [
+          "UsageMetering"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "LastId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/UsageMetering/ByManyDeviceIds": {
+      "post": {
+        "tags": [
+          "UsageMetering"
+        ],
+        "parameters": [
+          {
+            "name": "LastId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/UsageMetering/ById": {
+      "get": {
+        "tags": [
+          "UsageMetering"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/UsageMetering": {
+      "get": {
+        "tags": [
+          "UsageMetering"
+        ],
+        "operationId": "GetUsageMetering",
+        "parameters": [
+          {
+            "name": "LastId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/UsageMetering/ByManyIds": {
+      "post": {
+        "tags": [
+          "UsageMetering"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/WindowsServices/CountByDeviceId": {
       "get": {
         "tags": [
           "WindowsServices"
@@ -2828,7 +6349,101 @@
         }
       }
     },
-    "/api/v1/WindowsServices/GetWindowsServiceById": {
+    "/api/v1/WindowsServices/ByDeviceId": {
+      "get": {
+        "tags": [
+          "WindowsServices"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "LastId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/WindowsServices/ByManyDeviceIds": {
+      "post": {
+        "tags": [
+          "WindowsServices"
+        ],
+        "parameters": [
+          {
+            "name": "LastId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GuidListRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/WindowsServices/ById": {
       "get": {
         "tags": [
           "WindowsServices"
@@ -2882,122 +6497,10 @@
         }
       }
     },
-    "/api/v1/WindowsServices/GetByDeviceIdList": {
-      "get": {
+    "/api/v1/WindowsServices/ByManyIds": {
+      "post": {
         "tags": [
           "WindowsServices"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json-patch+json": {
-              "schema": {
-                "$ref": "#/components/schemas/GuidListRequest"
-              }
-            },
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/GuidListRequest"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/GuidListRequest"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/GuidListRequest"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/v1/Zones/GetZonesByDeviceId": {
-      "get": {
-        "tags": [
-          "Zones"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/v1/Zones/GetZoneById": {
-      "get": {
-        "tags": [
-          "Zones"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/v1/Zones": {
-      "get": {
-        "tags": [
-          "Zones"
-        ],
-        "operationId": "GetZones",
-        "parameters": [
-          {
-            "name": "LastId",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          },
-          {
-            "name": "count",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 100
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/v1/Zones/GetByDeviceIdList": {
-      "get": {
-        "tags": [
-          "Zones"
         ],
         "requestBody": {
           "content": {
@@ -3033,6 +6536,55 @@
   },
   "components": {
     "schemas": {
+      "DeviceAssignmentContract": {
+        "required": [
+          "deviceIds",
+          "resourceGroupId"
+        ],
+        "type": "object",
+        "properties": {
+          "deviceIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "nullable": true
+          },
+          "resourceGroupId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "enforceUniqueness": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeviceRelations": {
+        "enum": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
       "DeviceTargetType": {
         "enum": [
           0,
@@ -3073,9 +6625,19 @@
             "format": "date-time",
             "nullable": true
           },
-          "siteId": {
+          "scopeId": {
             "type": "string",
-            "format": "uuid"
+            "format": "uuid",
+            "nullable": true
+          },
+          "resourceGroupId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "enforceSingleGroupAssignment": {
+            "type": "boolean",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -3247,9 +6809,6 @@
             },
             "nullable": true
           },
-          "chassis": {
-            "$ref": "#/components/schemas/JsonChassis"
-          },
           "files": {
             "type": "array",
             "items": {
@@ -3285,17 +6844,33 @@
             },
             "nullable": true
           },
-          "zones": {
-            "$ref": "#/components/schemas/JsonZoneInfo"
-          },
-          "vSphere": {
-            "$ref": "#/components/schemas/JsonVSphere"
-          },
           "hyperV": {
-            "$ref": "#/components/schemas/JsonHyperV"
+            "$ref": "#/components/schemas/JsonHypervisor"
           },
           "docker": {
             "$ref": "#/components/schemas/JsonDocker"
+          },
+          "msSqlInstances": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/JsonMsSqlInstance"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FileUploadItem": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "file": {
+            "type": "string",
+            "format": "binary",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -3322,6 +6897,83 @@
         ],
         "type": "integer",
         "format": "int32"
+      },
+      "ImportedProductResult": {
+        "type": "object",
+        "properties": {
+          "catalogProductId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "catalogVersionId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "rawName": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "version": {
+            "type": "string",
+            "nullable": true
+          },
+          "manufacturer": {
+            "type": "string",
+            "nullable": true
+          },
+          "confidence": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "imported": {
+            "type": "boolean"
+          },
+          "skipReason": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ImportedProductSuiteResult": {
+        "type": "object",
+        "properties": {
+          "suiteId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "rawName": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "imported": {
+            "type": "boolean"
+          },
+          "skipReason": {
+            "type": "string",
+            "nullable": true
+          },
+          "products": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ImportedProductResult"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
       },
       "JsonActiveDirectoryImportData": {
         "type": "object",
@@ -3367,11 +7019,12 @@
       "JsonBios": {
         "type": "object",
         "properties": {
-          "deviceId": {
-            "type": "string",
-            "format": "uuid"
-          },
           "id": {
+            "type": "string",
+            "format": "uuid",
+            "readOnly": true
+          },
+          "deviceId": {
             "type": "string",
             "format": "uuid"
           },
@@ -3393,13 +7046,12 @@
           },
           "serialNumber": {
             "type": "string",
-            "nullable": true,
-            "readOnly": true
+            "nullable": true
           }
         },
         "additionalProperties": false
       },
-      "JsonChassis": {
+      "JsonComputerSystemProduct": {
         "type": "object",
         "properties": {
           "id": {
@@ -3411,102 +7063,7 @@
             "type": "string",
             "format": "uuid"
           },
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "caption": {
-            "type": "string",
-            "nullable": true
-          },
-          "type": {
-            "type": "string",
-            "nullable": true
-          },
-          "isPortableId": {
-            "type": "boolean"
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          },
-          "serialNumber": {
-            "type": "string",
-            "nullable": true
-          },
-          "smbiosAssetTag": {
-            "type": "string",
-            "nullable": true
-          },
-          "assetTag": {
-            "type": "string",
-            "nullable": true
-          },
-          "tag": {
-            "type": "string",
-            "nullable": true
-          },
-          "version": {
-            "type": "string",
-            "nullable": true
-          },
-          "sku": {
-            "type": "string",
-            "nullable": true
-          },
-          "lockPresent": {
-            "type": "boolean"
-          },
-          "chassisHeight": {
-            "type": "string",
-            "nullable": true
-          },
-          "powerCords": {
-            "type": "string",
-            "nullable": true
-          },
-          "chassisType": {
-            "type": "string",
-            "nullable": true
-          },
-          "securityStatus": {
-            "type": "string",
-            "nullable": true
-          },
-          "powerSupplyState": {
-            "type": "string",
-            "nullable": true
-          },
-          "thermalState": {
-            "type": "string",
-            "nullable": true
-          },
-          "manufacturer": {
-            "$ref": "#/components/schemas/JsonHardwareManufacturer"
-          }
-        },
-        "additionalProperties": false
-      },
-      "JsonComputerSystemProduct": {
-        "type": "object",
-        "properties": {
-          "deviceId": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
           "identifyingNumber": {
-            "type": "string",
-            "nullable": true
-          },
-          "caption": {
-            "type": "string",
-            "nullable": true
-          },
-          "description": {
             "type": "string",
             "nullable": true
           },
@@ -3531,11 +7088,12 @@
       "JsonCpu": {
         "type": "object",
         "properties": {
-          "deviceId": {
-            "type": "string",
-            "format": "uuid"
-          },
           "id": {
+            "type": "string",
+            "format": "uuid",
+            "readOnly": true
+          },
+          "deviceId": {
             "type": "string",
             "format": "uuid"
           },
@@ -3561,6 +7119,9 @@
           "processorId": {
             "type": "string",
             "nullable": true
+          },
+          "manufacturer": {
+            "$ref": "#/components/schemas/JsonHardwareManufacturer"
           },
           "cores": {
             "type": "integer",
@@ -3615,6 +7176,11 @@
           },
           "customSettings": {
             "$ref": "#/components/schemas/JsonDiscoverySettings"
+          },
+          "scopeId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -3683,6 +7249,11 @@
             "type": "string",
             "format": "uuid",
             "nullable": true
+          },
+          "scopeId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -3724,6 +7295,18 @@
               "type": "string"
             },
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "JsonDeviceRelationType": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/RelationshipType"
+          },
+          "relationship": {
+            "$ref": "#/components/schemas/DeviceRelations"
           }
         },
         "additionalProperties": false
@@ -3839,7 +7422,8 @@
           },
           "deviceId": {
             "type": "string",
-            "format": "uuid"
+            "format": "uuid",
+            "nullable": true
           },
           "name": {
             "type": "string",
@@ -3980,190 +7564,8 @@
             "type": "integer",
             "format": "int64",
             "readOnly": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "JsonEsxComputerSystem": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid",
-            "readOnly": true
           },
-          "name": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "objectType": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "elementName": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "parent": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "manufacturer": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "model": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "uuid": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "totalPhysicalMemory": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "cpuModel": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "cpuMhz": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "numberOfProcessors": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "numberOfProcessorCores": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "numberOfLogicalProcessors": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "numNics": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "numHBAs": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "vmotionEnabled": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "connectionState": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "hostName": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "maxEVCModeKey": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "inMaintenanceMode": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "licenseKey": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "operatingSystem": {
-            "$ref": "#/components/schemas/JsonVMwareOperatingSystem"
-          },
-          "computerSystemProduct": {
-            "$ref": "#/components/schemas/JsonEsxComputerSystemProduct"
-          },
-          "bios": {
-            "$ref": "#/components/schemas/JsonVMwareBios"
-          },
-          "processors": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/JsonVMwareProcessor"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "networkConfigurations": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/JsonVMwareNetworkConfiguration"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "packages": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/JsonVMwarePackage"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "virtualMachines": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/JsonVMwareComputerSystem"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "JsonEsxComputerSystemProduct": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid",
-            "readOnly": true
-          },
-          "name": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "vendor": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "model": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "uuid": {
+          "digest": {
             "type": "string",
             "nullable": true,
             "readOnly": true
@@ -4200,35 +7602,174 @@
             "format": "int64",
             "nullable": true
           },
-          "locations": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/JsonFileLocation"
-            },
-            "nullable": true,
-            "readOnly": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "JsonFileLocation": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid",
-            "readOnly": true
-          },
-          "timestamp": {
+          "installDate": {
             "type": "string",
             "format": "date-time",
-            "nullable": true,
-            "readOnly": true
+            "nullable": true
           },
-          "path": {
+          "manufacturer": {
             "type": "string",
-            "nullable": true,
-            "readOnly": true
+            "nullable": true
+          },
+          "version": {
+            "type": "string",
+            "nullable": true
+          },
+          "locations": {
+            "type": "string",
+            "nullable": true
+          },
+          "executableHeaderCheckSum": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "executableHeaderMajorImageVersion": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "executableHeaderMinorImageVersion": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "executableHeaderMajorLinkerVersion": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "executableHeaderMinorLinkerVersion": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "executableHeaderMajorOSVersion": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "executableHeaderMinorOSVersion": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "executableHeaderMajorSubSysVersion": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "executableHeaderMinorSubSysVersion": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "companyName": {
+            "type": "string",
+            "nullable": true
+          },
+          "fileVersion": {
+            "type": "string",
+            "nullable": true
+          },
+          "comments": {
+            "type": "string",
+            "nullable": true
+          },
+          "buildPart": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "majorPart": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "minorPart": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "privatePart": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "internalName": {
+            "type": "string",
+            "nullable": true
+          },
+          "isDebug": {
+            "type": "boolean"
+          },
+          "isPatched": {
+            "type": "boolean"
+          },
+          "isPreRelease": {
+            "type": "boolean"
+          },
+          "isPrivateBuild": {
+            "type": "boolean"
+          },
+          "isSpecialBuild": {
+            "type": "boolean"
+          },
+          "language": {
+            "type": "string",
+            "nullable": true
+          },
+          "legalCopyright": {
+            "type": "string",
+            "nullable": true
+          },
+          "legalTrademarks": {
+            "type": "string",
+            "nullable": true
+          },
+          "originalFilename": {
+            "type": "string",
+            "nullable": true
+          },
+          "privateBuild": {
+            "type": "string",
+            "nullable": true
+          },
+          "productBuildPart": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "productMajorPart": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "productMinorPart": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "productName": {
+            "type": "string",
+            "nullable": true
+          },
+          "productPrivatePart": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "productVersion": {
+            "type": "string",
+            "nullable": true
+          },
+          "specialBuild": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -4236,24 +7777,14 @@
       "JsonGpu": {
         "type": "object",
         "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "readOnly": true
+          },
           "deviceId": {
             "type": "string",
             "format": "uuid"
-          },
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "driverVersion": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "driverDate": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true,
-            "readOnly": true
           },
           "name": {
             "type": "string",
@@ -4265,6 +7796,15 @@
           },
           "manufacturer": {
             "$ref": "#/components/schemas/JsonHardwareManufacturer"
+          },
+          "driverVersion": {
+            "type": "string",
+            "nullable": true
+          },
+          "driverDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -4292,44 +7832,6 @@
         },
         "additionalProperties": false
       },
-      "JsonHyperV": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid",
-            "readOnly": true
-          },
-          "deviceId": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "name": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "description": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "clusterName": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "machines": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/JsonHyperVMachine"
-            },
-            "nullable": true,
-            "readOnly": true
-          }
-        },
-        "additionalProperties": false
-      },
       "JsonHyperVMachine": {
         "type": "object",
         "properties": {
@@ -4349,6 +7851,11 @@
             "readOnly": true
           },
           "virtualMachineId": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "serialNumber": {
             "type": "string",
             "nullable": true,
             "readOnly": true
@@ -4485,6 +7992,39 @@
         },
         "additionalProperties": false
       },
+      "JsonHypervisor": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "readOnly": true
+          },
+          "deviceId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "machines": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/JsonHyperVMachine"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "JsonIPv4Address": {
         "type": "object",
         "properties": {
@@ -4542,6 +8082,11 @@
           },
           "sccmImportData": {
             "$ref": "#/components/schemas/JsonSCCMImportData"
+          },
+          "scopeId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -4641,6 +8186,212 @@
           },
           "status": {
             "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "JsonMsSqlInstance": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "readOnly": true
+          },
+          "deviceId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "instanceName": {
+            "type": "string",
+            "nullable": true
+          },
+          "instanceId": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastScanned": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "edition": {
+            "type": "string",
+            "nullable": true
+          },
+          "version": {
+            "type": "string",
+            "nullable": true
+          },
+          "fileVersion": {
+            "type": "string",
+            "nullable": true
+          },
+          "spLevel": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "clustered": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "language": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "installPath": {
+            "type": "string",
+            "nullable": true
+          },
+          "dataPath": {
+            "type": "string",
+            "nullable": true
+          },
+          "regRoot": {
+            "type": "string",
+            "nullable": true
+          },
+          "sku": {
+            "type": "string",
+            "nullable": true
+          },
+          "skuName": {
+            "type": "string",
+            "nullable": true
+          },
+          "isWow64": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "errorReporting": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "sqmReporting": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "dumpDir": {
+            "type": "string",
+            "nullable": true
+          },
+          "instantFileInit": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "lockPages": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "forceEncryption": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "forceStrict": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "hideInstance": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "extendedProtection": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "services": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/JsonMsSqlService"
+            },
+            "nullable": true
+          },
+          "protocols": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/JsonMsSqlProtocol"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "JsonMsSqlProtocol": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "readOnly": true
+          },
+          "protocolName": {
+            "type": "string",
+            "nullable": true
+          },
+          "displayName": {
+            "type": "string",
+            "nullable": true
+          },
+          "enabled": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "multiIpSupport": {
+            "type": "boolean",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "JsonMsSqlService": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "readOnly": true
+          },
+          "serviceName": {
+            "type": "string",
+            "nullable": true
+          },
+          "displayName": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "sqlServiceType": {
+            "$ref": "#/components/schemas/SqlServiceType"
+          },
+          "binaryPath": {
+            "type": "string",
+            "nullable": true
+          },
+          "startupParameters": {
+            "type": "string",
+            "nullable": true
+          },
+          "version": {
+            "type": "string",
+            "nullable": true
+          },
+          "fileVersion": {
+            "type": "string",
+            "nullable": true
+          },
+          "isWow64": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "clustered": {
+            "type": "boolean",
             "nullable": true
           }
         },
@@ -4869,11 +8620,12 @@
       "JsonOperatingSystem": {
         "type": "object",
         "properties": {
-          "deviceId": {
-            "type": "string",
-            "format": "uuid"
-          },
           "id": {
+            "type": "string",
+            "format": "uuid",
+            "readOnly": true
+          },
+          "deviceId": {
             "type": "string",
             "format": "uuid"
           },
@@ -5137,47 +8889,34 @@
       "JsonSoftwareFingerprint": {
         "type": "object",
         "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "readOnly": true
+          },
           "deviceId": {
             "type": "string",
             "format": "uuid"
           },
-          "id": {
-            "type": "string",
-            "format": "uuid"
+          "size": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
           },
-          "name": {
+          "sourcePath": {
             "type": "string",
             "nullable": true
           },
-          "vendor": {
-            "type": "string",
-            "nullable": true
-          },
-          "version": {
-            "type": "string",
-            "nullable": true
-          },
-          "productCode": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          },
-          "language": {
+          "installLocation": {
             "type": "string",
             "nullable": true
           },
           "installDate": {
             "type": "string",
             "format": "date-time",
-            "nullable": true,
-            "readOnly": true
+            "nullable": true
           },
-          "installLocation": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "type": {
+          "name": {
             "type": "string",
             "nullable": true
           },
@@ -5185,9 +8924,12 @@
             "type": "string",
             "nullable": true
           },
-          "size": {
-            "type": "integer",
-            "format": "int64",
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "version": {
+            "type": "string",
             "nullable": true
           },
           "architecture": {
@@ -5198,1000 +8940,39 @@
             "type": "string",
             "nullable": true
           },
+          "vendor": {
+            "type": "string",
+            "nullable": true
+          },
           "sku": {
             "type": "string",
             "nullable": true
           },
-          "sourcePath": {
+          "language": {
             "type": "string",
             "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "JsonVMwareBios": {
-        "type": "object",
-        "properties": {
-          "id": {
+          },
+          "packageCode": {
             "type": "string",
             "format": "uuid",
-            "readOnly": true
+            "nullable": true
           },
-          "name": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "biosVersion": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "releaseDate": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "majorRelease": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "minorRelease": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "firmwareMajorRelease": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "firmwareMinorRelease": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "legacySerialNumber": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "serialNumber": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "manufacturer": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "status": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "customStrings": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/JsonVMwareBiosCustomString"
-            },
-            "nullable": true,
-            "readOnly": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "JsonVMwareBiosCustomString": {
-        "type": "object",
-        "properties": {
-          "id": {
+          "productCode": {
             "type": "string",
             "format": "uuid",
-            "readOnly": true
+            "nullable": true
           },
-          "key": {
+          "namespace": {
             "type": "string",
-            "nullable": true,
-            "readOnly": true
+            "nullable": true
           },
-          "value": {
+          "keyPath": {
             "type": "string",
-            "nullable": true,
-            "readOnly": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "JsonVMwareCluster": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid",
-            "readOnly": true
-          },
-          "name": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "objectType": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "elementName": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "parent": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "resourcePool": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "type": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "JsonVMwareClusterDrsConfig": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid",
-            "readOnly": true
-          },
-          "name": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "defaultVmBehavior": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "enabled": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "vmotionRate": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "options": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/JsonVMwareClusterDrsConfigOption"
-            },
-            "nullable": true,
-            "readOnly": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "JsonVMwareClusterDrsConfigOption": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid",
-            "readOnly": true
-          },
-          "key": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "value": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "JsonVMwareClusterDrsVmConfig": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid",
-            "readOnly": true
-          },
-          "name": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "behavior": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "enabled": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "vmKey": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "JsonVMwareClusterGroup": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid",
-            "readOnly": true
-          },
-          "name": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "clusterName": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "host": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "vm": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "objectType": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "JsonVMwareClusterRule": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid",
-            "readOnly": true
-          },
-          "name": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "key": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "enabled": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "mandatory": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "status": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "userCreated": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "clusterName": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "affineHostGroupName": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "antiAffineHostGroupName": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "vmGroupName": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "vm": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "objectType": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "JsonVMwareClusterTagCategories": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid",
-            "readOnly": true
-          },
-          "name": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "categories": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/JsonVMwareClusterTagCategory"
-            },
-            "nullable": true,
-            "readOnly": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "JsonVMwareClusterTagCategory": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid",
-            "readOnly": true
-          },
-          "key": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "value": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "JsonVMwareComputeResource": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid",
-            "readOnly": true
-          },
-          "name": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "JsonVMwareComputerSystem": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid",
-            "readOnly": true
-          },
-          "name": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "objectType": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "elementName": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "parent": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "resourcePool": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "vmPathName": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "memorySizeMB": {
-            "type": "integer",
-            "format": "int64",
-            "nullable": true,
-            "readOnly": true
-          },
-          "memoryReservation": {
-            "type": "integer",
-            "format": "int64",
-            "nullable": true,
-            "readOnly": true
-          },
-          "numCpu": {
-            "type": "integer",
-            "format": "int64",
-            "nullable": true,
-            "readOnly": true
-          },
-          "numEthernetCards": {
-            "type": "integer",
-            "format": "int64",
-            "nullable": true,
-            "readOnly": true
-          },
-          "numVirtualDisks": {
-            "type": "integer",
-            "format": "int64",
-            "nullable": true,
-            "readOnly": true
-          },
-          "uuid": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "instanceUuid": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "guestId": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "guestFullName": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "annotation": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "numVmiopBackings": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "cpuReservation": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "connectionState": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "powerState": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "bootTime": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true,
-            "readOnly": true
-          },
-          "maxCpuUsage": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "maxMemoryUsage": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "JsonVMwareDataCenter": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid",
-            "readOnly": true
-          },
-          "name": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "objectType": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "elementName": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "hostFolder": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "parent": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "vmFolder": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "JsonVMwareFolder": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid",
-            "readOnly": true
-          },
-          "name": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "elementName": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "objectType": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "parentName": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "JsonVMwareNetworkConfiguration": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid",
-            "readOnly": true
-          },
-          "name": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "caption": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "ipAddress": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "macAddress": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "ipEnabled": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "JsonVMwareOperatingSystem": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid",
-            "readOnly": true
-          },
-          "apiType": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "apiVersion": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "name": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "version": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "build": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "caption": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "manufacturer": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "osType": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "otherTypeDescription": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "productID": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "lastBootUpTime": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "JsonVMwarePackage": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid",
-            "readOnly": true
-          },
-          "name": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "architecture": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "size": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "publisher": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "summary": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "total": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "used": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "JsonVMwareProcessor": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid",
-            "readOnly": true
-          },
-          "caption": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "index": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "name": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "manufacturer": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "maxClockSpeed": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "busHz": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "numberOfCores": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "numberOfLogicalProcessors": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "JsonVMwareResourcePool": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid",
-            "readOnly": true
-          },
-          "name": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "objectType": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "elementName": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "owner": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "parent": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "JsonVSphere": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid",
-            "readOnly": true
-          },
-          "deviceId": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "apiType": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "apiVersion": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "name": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "version": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "build": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "caption": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
+            "nullable": true
           },
-          "manufacturer": {
+          "edition": {
             "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "productID": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "server": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "serverURL": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "esxHosts": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/JsonEsxComputerSystem"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "dataCenters": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/JsonVMwareDataCenter"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "folders": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/JsonVMwareFolder"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "clusterDrsConfigs": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/JsonVMwareClusterDrsConfig"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "clusterDrsVmConfigs": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/JsonVMwareClusterDrsVmConfig"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "clusterRules": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/JsonVMwareClusterRule"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "clusterGroups": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/JsonVMwareClusterGroup"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "clusters": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/JsonVMwareCluster"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "clusterTagCategories": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/JsonVMwareClusterTagCategories"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "computeResources": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/JsonVMwareComputeResource"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "resourcePools": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/JsonVMwareResourcePool"
-            },
-            "nullable": true,
-            "readOnly": true
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -6234,105 +9015,109 @@
         },
         "additionalProperties": false
       },
-      "JsonZone": {
+      "LicenseContractImportMode": {
+        "enum": [
+          0,
+          1
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "LicenseContractImportProgressResponse": {
+        "required": [
+          "sessionId"
+        ],
         "type": "object",
         "properties": {
-          "id": {
+          "sessionId": {
             "type": "string",
-            "format": "uuid",
-            "readOnly": true
+            "nullable": true
           },
-          "name": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
+          "isComplete": {
+            "type": "boolean"
           },
-          "state": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
+          "completedFiles": {
+            "type": "integer",
+            "format": "int32"
           },
-          "path": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
+          "totalFiles": {
+            "type": "integer",
+            "format": "int32"
           },
-          "brand": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "ipType": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "resourceControl": {
+          "results": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/JsonZoneResourceControl"
+              "$ref": "#/components/schemas/LicenseContractImportResult"
             },
-            "nullable": true,
-            "readOnly": true
+            "nullable": true
+          },
+          "finalResult": {
+            "$ref": "#/components/schemas/LicenseContractMultipleImportResult"
           }
         },
         "additionalProperties": false
       },
-      "JsonZoneInfo": {
+      "LicenseContractImportResult": {
         "type": "object",
         "properties": {
-          "id": {
+          "fileId": {
+            "type": "string",
+            "nullable": true
+          },
+          "success": {
+            "type": "boolean"
+          },
+          "contractId": {
             "type": "string",
             "format": "uuid",
-            "readOnly": true
+            "nullable": true
           },
-          "deviceId": {
+          "contractName": {
             "type": "string",
-            "format": "uuid"
+            "nullable": true
           },
-          "zone": {
-            "$ref": "#/components/schemas/JsonZone"
+          "logs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "productSuites": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ImportedProductSuiteResult"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
       },
-      "JsonZoneResourceControl": {
+      "LicenseContractMultipleImportResult": {
         "type": "object",
         "properties": {
-          "id": {
+          "sessionId": {
             "type": "string",
-            "format": "uuid",
-            "readOnly": true
+            "nullable": true
           },
-          "name": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
+          "totalFiles": {
+            "type": "integer",
+            "format": "int32"
           },
-          "privilege": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
+          "successfulImports": {
+            "type": "integer",
+            "format": "int32"
           },
-          "value": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
+          "failedImports": {
+            "type": "integer",
+            "format": "int32"
           },
-          "flag": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "action": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "recipient": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LicenseContractImportResult"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -6392,6 +9177,77 @@
         "type": "integer",
         "format": "int32"
       },
+      "ProblemDetails": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string",
+            "nullable": true
+          },
+          "instance": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": { }
+      },
+      "RelationshipType": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "ResourceGroupContract": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "parentId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SqlServiceType": {
+        "enum": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
       "StringStringKeyValuePair": {
         "type": "object",
         "properties": {
@@ -6415,5 +9271,124 @@
         "in": "header"
       }
     }
-  }
+  },
+  "tags": [
+    {
+      "name": "Bios"
+    },
+    {
+      "name": "Chassis"
+    },
+    {
+      "name": "ComputerSystemProducts"
+    },
+    {
+      "name": "Cpus"
+    },
+    {
+      "name": "DeviceRelations"
+    },
+    {
+      "name": "Devices"
+    },
+    {
+      "name": "Disks"
+    },
+    {
+      "name": "Docker"
+    },
+    {
+      "name": "File"
+    },
+    {
+      "name": "Fingerprints"
+    },
+    {
+      "name": "Gpus"
+    },
+    {
+      "name": "HyperVs"
+    },
+    {
+      "name": "InventoryScriptResults"
+    },
+    {
+      "name": "Keyboards"
+    },
+    {
+      "name": "LicenseContracts"
+    },
+    {
+      "name": "LogicalVolumes"
+    },
+    {
+      "name": "MsCluster"
+    },
+    {
+      "name": "NetworkAdapters"
+    },
+    {
+      "name": "Networks"
+    },
+    {
+      "name": "OperatingSystems"
+    },
+    {
+      "name": "Operations"
+    },
+    {
+      "name": "OracleComponents"
+    },
+    {
+      "name": "OracleDbs"
+    },
+    {
+      "name": "OracleDfus"
+    },
+    {
+      "name": "OracleOptions"
+    },
+    {
+      "name": "OracleParameters"
+    },
+    {
+      "name": "OracleReports"
+    },
+    {
+      "name": "OracleScriptDfus"
+    },
+    {
+      "name": "OracleVOptions"
+    },
+    {
+      "name": "PointingDevices"
+    },
+    {
+      "name": "Processes"
+    },
+    {
+      "name": "RegistryEntries"
+    },
+    {
+      "name": "ResourceGroup"
+    },
+    {
+      "name": "Runners"
+    },
+    {
+      "name": "ServerFeatures"
+    },
+    {
+      "name": "Site"
+    },
+    {
+      "name": "StoredCredentials"
+    },
+    {
+      "name": "UsageMetering"
+    },
+    {
+      "name": "WindowsServices"
+    }
+  ]
 }
